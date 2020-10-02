@@ -6,12 +6,17 @@ import {
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import {Text, View} from '../components/Themed';
+import firebase from "firebase";
 
 export default function HomeScreen() {
     let userScore = 4;
-    const checkScore = () => {
-
+    function writeUserData(userId:any, name:string, email:string) {
+        firebase.database().ref('users/' + userId).set({
+            username: name,
+            email: email,
+        });
     }
+    // const database = firebase.database();
     let imagePath: any;
     let imageStyle: any;
 
@@ -108,11 +113,11 @@ export default function HomeScreen() {
                 justifyContent: 'center',
                 marginTop: "15%",
             }}>
-                {/*<Button*/}
-                {/*    title="scan"*/}
-                {/*    onPress={() => navigation.navigate('Home_Details')}*/}
+                <Button
+                    title="scan"
+                    onPress={() => writeUserData(0,'Home_Details',"247556670@qq.com")}
 
-                {/*/>*/}
+                />
             </View>
             <View style={styles.taskContainer}></View>
             {/*<View style={styles.taskContainer}></View>*/}

@@ -35,6 +35,8 @@
     "expo-splash-screen": "~0.6.1",
     "expo-status-bar": "~1.0.2",
     "expo-web-browser": "~8.5.0",
+    "firebase": "7.9.0",
+    "firebase-admin": "^9.2.0",
     "install": "^0.13.0",
     "peer": "^0.5.3",
     "react": "16.13.1",
@@ -60,19 +62,24 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
-    "@types/react": "~16.9.35",
-    "@types/react-native": "~0.63.2",
-    "jest-expo": "~39.0.0",
-    "typescript": "~3.9.5",
     "@babel/runtime": "^7.8.4",
     "@expo/vector-icons": "^10.2.0",
     "@react-native-community/eslint-config": "^1.1.0",
     "@react-navigation/native": "^5.7.3",
+    "@types/react": "~16.9.35",
+    "@types/react-native": "~0.63.2",
     "babel-jest": "^25.1.0",
     "eslint": "^6.5.1",
     "jest": "^25.1.0",
+    "jest-expo": "~39.0.0",
     "metro-react-native-babel-preset": "^0.59.0",
-    "react-test-renderer": "16.13.1"
+    "react-test-renderer": "16.13.1",
+    "typescript": "~3.9.5"
   },
-  "private": true
+  "private": true,
+  "name": "SeventhParadigmRenew",
+  "version": "1.0.0",
+  "repository": "https://github.com/A247356670A/SeventhParadigmRenew.git",
+  "author": "junxian chen <a247356670a@gmail.com>",
+  "license": "MIT"
 }
