@@ -7,36 +7,88 @@ import {
 import EditScreenInfo from '../components/EditScreenInfo';
 import {Text, View} from '../components/Themed';
 import firebase from "firebase";
+import {List} from "react-native-paper";
 
 export default function HomeScreen() {
-    let userScore = 4;
-    function writeUserData(userId:any, name:string, email:string) {
-        firebase.database().ref('users/' + userId).set({
-            username: name,
-            email: email,
-        });
-    }
-    // const database = firebase.database();
+    const database = firebase.database();
+    // async function getUserScore() {
+    //     const snapshot = await database.ref('starsLevel/' + 0 + '/level').once('value');
+    //     return snapshot.val()
+    // }
+    //
+    // const userScore = await getUserScore();
+    let userScore: number;
+    var ref = database.ref('starsLevel/' + 0 + '/level')
+    ref.on("value", function (snapshot) {
+
+        updateUserScore(snapshot.val())
+        console.log("data pulled" + userScore);
+        // @ts-ignore
+        if (userScore == 0 || userScore == 1) {
+            imagePath = require('../assets/images/one_star.png');
+            imageStyle = styles.oneStar;
+        } else { // @ts-ignore
+            if (userScore == 2) {
+                imagePath = require('../assets/images/two_star.png');
+                imageStyle = styles.twoStars;
+
+            } else { // @ts-ignore
+                if (userScore == 3) {
+                    imagePath = require('../assets/images/three_star.png');
+                    imageStyle = styles.threeStars;
+                } else { // @ts-ignore
+                    if (userScore == 4) {
+                        imagePath = require('../assets/images/five_star.png');
+                        imageStyle = styles.fiveStars;
+                    } else {
+                        imagePath = require('../assets/images/unhappy-face.png');
+                        imageStyle = styles.unhappyFace;
+                    }
+                }
+            }
+        }
+
+    });
+
     let imagePath: any;
     let imageStyle: any;
 
-    if (userScore === 1 || userScore === 0) {
-        imagePath = require('../assets/images/one_star.png');
-        imageStyle = styles.oneStar;
-    } else if (userScore === 2) {
-        imagePath = require('../assets/images/two_star.png');
-        imageStyle = styles.twoStars;
 
-    } else if (userScore === 3) {
-        imagePath = require('../assets/images/three_star.png');
-        imageStyle = styles.threeStars;
-    } else if (userScore === 4) {
-        imagePath = require('../assets/images/five_star.png');
-        imageStyle = styles.fiveStars;
-    } else {
-        imagePath = require('../assets/images/unhappy-face.png');
-        imageStyle = styles.unhappyFace;
+    // userScore.on("child_added", function(snapshot){
+    //     console.log(snapshot.val().word);
+    //     console.log(snapshot.val().definition);
+    // });
+    function updateUserScore(newScore: number) {
+        userScore = newScore;
+
+        return userScore;
     }
+
+    function setUserScore(levelId:number, Score:number) {
+        database.ref('starsLevel/' + levelId).set({
+            level: Score
+        }).then(function () {
+            console.log('Synchronization succeeded');
+        })
+            .catch(function (error) {
+                console.log('Synchronization failed');
+            });
+    }
+
+    function writeUserData(userId: number, name: string, email: string) {
+        database.ref('users/' + userId).set({
+            username: name,
+            email: email,
+        }).then(function () {
+            console.log('Synchronization succeeded');
+        })
+            .catch(function (error) {
+                console.log('Synchronization failed');
+            });
+    }
+
+
+
     return (
         <View style={styles.taskContainer}>
             <View style={styles.taskContainer}>
@@ -113,11 +165,21 @@ export default function HomeScreen() {
                 justifyContent: 'center',
                 marginTop: "15%",
             }}>
+
                 <Button
                     title="scan"
-                    onPress={() => writeUserData(0,'Home_Details',"247556670@qq.com")}
-
+                    onPress={() => console.log(userScore)}
+                    //writeUserData(1,'1Home_Details',"1247556670@qq.com")
                 />
+                <Button
+                    title="update"
+                    onPress={() => console.log(setUserScore(0,0))}
+                />
+                <Button
+                    title="test"
+                    onPress={() => console.log(writeUserData(2,'qqq','@11sss'))}
+                />
+
             </View>
             <View style={styles.taskContainer}></View>
             {/*<View style={styles.taskContainer}></View>*/}
