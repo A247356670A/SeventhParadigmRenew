@@ -18,7 +18,7 @@ export default function HomeScreen() {
     //
     // const userScore = await getUserScore();
     let userScore: number;
-    var ref = database.ref('starsLevel/' + 0 + '/level')
+    let ref = database.ref('starsLevel/' + 0 + '/level')
     ref.on("value", function (snapshot) {
 
         updateUserScore(snapshot.val())
