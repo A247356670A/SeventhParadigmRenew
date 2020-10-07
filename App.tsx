@@ -7,23 +7,7 @@ import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 import * as firebase from 'firebase';
 
-// Optionally import the services that you want to use
-//import "firebase/auth";
-//import "firebase/database";
-//import "firebase/firestore";
-//import "firebase/functions";
-//import "firebase/storage";
-// function storeHighScore(userId:any, score:any) {
-//     firebase.database().ref('users/' + userId).set({
-//         highScore: score
-//     });
-// }
-// setupHighscoreListener(userId) {
-//     firebase.database().ref('users/' + userId).on('value', (snapshot) => {
-//         const highscore = snapshot.val().highscore;
-//         console.log("New high score: " + highscore);
-//     });
-// }
+
 
 export default function App() {
     const isLoadingComplete = useCachedResources();
@@ -43,7 +27,7 @@ export default function App() {
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
     }
-    // const database = firebase.database();
+    const database = firebase.database();
 
     if (!isLoadingComplete) {
         return null;

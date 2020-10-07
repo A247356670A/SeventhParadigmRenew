@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Dialog from "react-native-dialog";
 import {
     StyleSheet, Button,
     Image,
@@ -8,8 +9,12 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import {Text, View} from '../components/Themed';
 import firebase from "firebase";
 import {List} from "react-native-paper";
+import {useState} from "react";
 
 export default function HomeScreen() {
+    const [isInputPopup, setInputPopup] = useState(false);
+    const [userScore, setUserScores] = useState(2);
+
     const database = firebase.database();
     // async function getUserScore() {
     //     const snapshot = await database.ref('starsLevel/' + 0 + '/level').once('value');
@@ -17,38 +22,7 @@ export default function HomeScreen() {
     // }
     //
     // const userScore = await getUserScore();
-    let userScore: number;
-    let ref = database.ref('starsLevel/' + 0 + '/level')
-    ref.on("value", function (snapshot) {
 
-        updateUserScore(snapshot.val())
-        console.log("data pulled" + userScore);
-        // @ts-ignore
-        if (userScore == 0 || userScore == 1) {
-            imagePath = require('../assets/images/one_star.png');
-            imageStyle = styles.oneStar;
-        } else { // @ts-ignore
-            if (userScore == 2) {
-                imagePath = require('../assets/images/two_star.png');
-                imageStyle = styles.twoStars;
-
-            } else { // @ts-ignore
-                if (userScore == 3) {
-                    imagePath = require('../assets/images/three_star.png');
-                    imageStyle = styles.threeStars;
-                } else { // @ts-ignore
-                    if (userScore == 4) {
-                        imagePath = require('../assets/images/five_star.png');
-                        imageStyle = styles.fiveStars;
-                    } else {
-                        imagePath = require('../assets/images/unhappy-face.png');
-                        imageStyle = styles.unhappyFace;
-                    }
-                }
-            }
-        }
-
-    });
 
     let imagePath: any;
     let imageStyle: any;
@@ -58,16 +32,25 @@ export default function HomeScreen() {
     //     console.log(snapshot.val().word);
     //     console.log(snapshot.val().definition);
     // });
-    function updateUserScore(newScore: number) {
-        userScore = newScore;
+    function updateUserScore() {
+        // let userScore: number;
+        let ref = database.ref('starsLevel/' + 0 + '/level')
+        ref.on("value", function (snapshot) {
+            setUserScores(snapshot.val());
+            // updateUserScore(snapshot.val());
+            console.log("data pulled" + userScore);
+            // HomeScreen();
 
-        return userScore;
+
+        });
     }
 
     function setUserScore(levelId:number, Score:number) {
         database.ref('starsLevel/' + levelId).set({
             level: Score
+
         }).then(function () {
+            updateUserScore();
             console.log('Synchronization succeeded');
         })
             .catch(function (error) {
@@ -87,7 +70,35 @@ export default function HomeScreen() {
             });
     }
 
+    function handleScore(score:number){
+        setUserScores(score);
+        console.log(userScore)
+    }
 
+    // @ts-ignore
+    if (userScore == 0 || userScore == 1) {
+        imagePath = require('../assets/images/one_star.png');
+        imageStyle = styles.oneStar;
+    } else { // @ts-ignore
+        if (userScore == 2) {
+            imagePath = require('../assets/images/two_star.png');
+            imageStyle = styles.twoStars;
+
+        } else { // @ts-ignore
+            if (userScore == 3) {
+                imagePath = require('../assets/images/three_star.png');
+                imageStyle = styles.threeStars;
+            } else { // @ts-ignore
+                if (userScore == 4) {
+                    imagePath = require('../assets/images/five_star.png');
+                    imageStyle = styles.fiveStars;
+                } else {
+                    imagePath = require('../assets/images/unhappy-face.png');
+                    imageStyle = styles.unhappyFace;
+                }
+            }
+        }
+    }
 
     return (
         <View style={styles.taskContainer}>
@@ -168,16 +179,28 @@ export default function HomeScreen() {
 
                 <Button
                     title="scan"
-                    onPress={() => console.log(userScore)}
+                    onPress={() => updateUserScore()}
                     //writeUserData(1,'1Home_Details',"1247556670@qq.com")
                 />
+                <View>
+                    <Dialog.Container visible={isInputPopup}>
+                        <Dialog.Title>Account delete</Dialog.Title>
+                        <Dialog.Description>
+                            Do you want to delete this account? You cannot undo this action.
+                        </Dialog.Description>
+                        {/*<Dialog.Input label={"input number"} onChangeText={(score: string) => handleScore(score)}/>*/}
+
+                        <Dialog.Button label="Cancel" onPress={() => setInputPopup(!isInputPopup)}/>
+                        {/*<Dialog.Button label="Delete"  onPress={}/>*/}
+                    </Dialog.Container>
+                </View>
                 <Button
                     title="update"
-                    onPress={() => console.log(setUserScore(0,0))}
+                    onPress={() => console.log(setUserScore(0,6))}
                 />
                 <Button
                     title="test"
-                    onPress={() => console.log(writeUserData(2,'qqq','@11sss'))}
+                    onPress={() => console.log(setInputPopup(!isInputPopup))}
                 />
 
             </View>
