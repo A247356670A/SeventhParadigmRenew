@@ -196,7 +196,7 @@ export default function HomeScreen() {
                 </View>
                 <Button
                     title="update"
-                    onPress={() => console.log(setUserScore(0,6))}
+                    onPress={() => console.log(setUserScore(0,3))}
                 />
                 <Button
                     title="test"
