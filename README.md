@@ -9,9 +9,11 @@ npm install -g yarn
 ## Step: 3 (每次pull后都run一遍, 可能装了新的package)
 npm rm -rf node_modules && npm install
 ## run 
-yarn start --reset-cache
+//yarn start --reset-cache
 
-yarn react-native run-android
+//yarn react-native run-android
+
+expo start
 
 ## 图标问题
 
