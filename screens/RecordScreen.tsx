@@ -74,26 +74,7 @@ export default function RecordScreen() {
         // >
         //     <View style={styles.record01}>
         //
-        //         <Text>your rec11ord</Text>
-        //
-        //         <BarChart
-        //             yAxisSuffix="k"
-        //             data={{
-        //                 labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-        //                 datasets: [
-        //                     {
-        //                         data: [20, 45, 28, 80, 99, 43],
-        //                     },
-        //                 ],
-        //             }}
-        //             // width={Dimensions.get("window").width} // from react-native
-        //             // style={graphStyle}
-        //             width={350}
-        //             height={250}
-        //             yAxisLabel="$"
-        //             chartConfig={chartConfig}
-        //             verticalLabelRotation={30}
-        //         />
+
         //
         //         {/*<View >*/}
         //         {/*    <Text>your rec11ord</Text>*/}
@@ -106,46 +87,33 @@ export default function RecordScreen() {
         //
         //     </View>
             <View style={{flex: 1}}>
+                <Text>your rec11ord</Text>
 
-                <BarCodeScanner onBarCodeScanned={handleBarCodeScanned}
-                                type={type}
-                                barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
-                                style={[StyleSheet.absoluteFillObject, styles.container]}>
+                <BarChart
+                    yAxisSuffix="k"
+                    data={{
+                        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                        datasets: [
+                            {
+                                data: [20, 45, 28, 80, 99, 43],
+                            },
+                        ],
+                    }}
+                    // width={Dimensions.get("window").width} // from react-native
+                    // style={graphStyle}
+                    width={350}
+                    height={250}
+                    yAxisLabel="$"
+                    chartConfig={chartConfig}
+                    verticalLabelRotation={30}
+                />
+                <View style={styles.record01}>
+                    <Text>your rec11ord</Text>
+                    <Text>your rec11ordL</Text>
 
-                    <View
-                        style={{
-                            flex: 1,
-                            backgroundColor: 'transparent',
-                            flexDirection: 'row',
-                        }}>
-
-                        <TouchableOpacity
-                            style={{
-                                flex: 1,
-                                alignItems: 'flex-end',
-                            }}
-
-                            onPress={() => {
-                                setType(
-                                    type === BarCodeScanner.Constants.Type.back
-                                        ? BarCodeScanner.Constants.Type.front : BarCodeScanner.Constants.Type.back
-                                );
-                            }}>
-                            <Text style={{fontSize: 18, margin: 5, color: 'white'}}> Flip </Text>
-                        </TouchableOpacity>
-                    </View>
-
-                    <BarcodeMask edgeColor="#62B1F6" showAnimatedLine/>
-                    {scanned && <Button title="Scan Again" onPress={() => setScanned(false)}/>}
-
-                </BarCodeScanner>
-
+                </View>
             </View>
-            // {/*<View style={styles.record01}>*/}
-            // {/*    <Text>your rec11ord</Text>*/}
-            // {/*    <Text>your rec11ordL</Text>*/}
-            //
-            // {/*</View>*/}
+
         // </ScrollView>
     );
 }
