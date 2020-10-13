@@ -11,6 +11,8 @@ export default function TaskScreen() {
     const [isGym, setGym] = useState(false);
     const [isDri, setDri] = useState(false);
     const [isCup, setCup] = useState(false);
+    const [isEx, setEx] = useState(false);
+    const [isLight, setLight] = useState(false);
     const userScoreAdd = () => {
         window.location = window.location
         // window.location.reload(false);
@@ -40,13 +42,13 @@ export default function TaskScreen() {
 
             </View>
             <View style={styles.checkboxContainer}>
-                <CheckBox value={isCup} onValueChange={setCup} style={styles.checkbox}/>
-                <Text style={styles.label}>Using Your Own Cup? {isCup ? '👍' : '👎'}</Text>
+                <CheckBox value={isEx} onValueChange={setEx} style={styles.checkbox}/>
+                <Text style={styles.label}>Have Exercised Today? {isEx ? '👍' : '👎'}</Text>
 
             </View>
             <View style={styles.checkboxContainer}>
-                <CheckBox value={isCup} onValueChange={setCup} style={styles.checkbox}/>
-                <Text style={styles.label}>userScore {isCup ? '👍' : '👎'}</Text>
+                <CheckBox value={isLight} onValueChange={setLight} style={styles.checkbox}/>
+                <Text style={styles.label}>Lights out when you sleep? {isLight ? '👍' : '👎'}</Text>
             </View>
         </View>
     );
