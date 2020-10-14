@@ -195,7 +195,7 @@ export default function HomeScreen() {
             <View style={{
                 zIndex: 10,
                 marginTop: "25%",
-                backgroundColor: "#009966",
+                backgroundColor: "#d8f5e3",
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: 225,
@@ -206,13 +206,13 @@ export default function HomeScreen() {
                     zIndex: 99,
                     alignItems: 'center',
                     justifyContent: 'center',
-                    backgroundColor: "#8ee6b6",
+                    backgroundColor: "#baedcf",
                     // backgroundGradientFrom: "#8ee6b6",
                     // backgroundGradientFromOpacity: 0.5,
                     // backgroundGradientTo: "#5fd393",
                     // backgroundGradientToOpacity: 0.5,
-                    width: 200,
-                    height: 200,
+                    width: 190,
+                    height: 190,
                     borderRadius: 100,
                 }}>
                     <Image style={imageStyle}

@@ -129,13 +129,13 @@ function HomeNavigator() {
                     headerTitle: 'Welcome',
                     headerTitleAlign: 'left',
                     headerStyle: {
-                        height: 135,
-                        backgroundColor: '#68BE92',
-                        borderBottomLeftRadius: 80,
+                        height: 145,
+                        backgroundColor: '#78d9a4',
+                        borderBottomLeftRadius: 70,
                     },
                     headerTitleStyle: {
                         paddingLeft: 55,
-                        paddingTop: 32,
+                        paddingTop: 10,
                         fontSize: 30,
                         color: 'white',
                     },

@@ -14,12 +14,8 @@ import {Text, View} from '../components/Themed';
 import {BarCodeScanner, BarCodeScannerResult} from 'expo-barcode-scanner';
 import BarcodeMask from 'react-native-barcode-mask';
 
-const finderWidth: number = 280;
-const finderHeight: number = 230;
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-const viewMinX = (width - finderWidth) / 2;
-const viewMinY = (height - finderHeight) / 2;
 
 export default function RecordScreen() {
     // const [hasPermission, setHasPermission] = useState(null);
@@ -35,58 +31,23 @@ export default function RecordScreen() {
         barPercentage: 0.5,
         useShadowColorFromDataset: false, // optional
     };
-
-    const [hasPermission, setHasPermission] = useState<boolean | null>(null);
-    const [type, setType] = useState<any>(BarCodeScanner.Constants.Type.back);
-    const [scanned, setScanned] = useState<boolean>(false);
-
-
-    useEffect(() => {
-
-        (async () => {
-            const {status} = await BarCodeScanner.requestPermissionsAsync();
-            setHasPermission(status === 'granted');
-        })();
-    }, []);
-
-    const handleBarCodeScanned = (scanningResult: BarCodeScannerResult) => {
-        if (!scanned) {
-            const {type, data, bounds: {origin} = {}} = scanningResult;
-            // @ts-ignore
-            const {x, y} = origin;
-            if (x >= viewMinX && y >= viewMinY && x <= (viewMinX + finderWidth / 2) && y <= (viewMinY + finderHeight / 2)) {
-                setScanned(true);
-                alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-            }
-        }
-    };
-    if (hasPermission === null) {
-        return <Text>Requesting for camera permission</Text>;
-    }
-    if (hasPermission === false) {
-        return <Text>No access to camera</Text>;
-    }
     return (
-        // <ScrollView
-        //     style={styles.scrollViewStyle}
-        //     // horizontal={true}
-        //     // pagingEnabled={true}
-        // >
-        //     <View style={styles.record01}>
-        //
-
-        //
-        //         {/*<View >*/}
-        //         {/*    <Text>your rec11ord</Text>*/}
-        //         {/*</View>*/}
-        //         {/*<View style = {styles.record01}>*/}
-        //         {/*    <Text>your record1</Text>*/}
-        //         {/*</View>*/}
-        //         {/*<Text style={styles.bigBlue}>Record Screen</Text>*/}
-        //         {/*<Button title="Go to Details" onPress={() => navigation.navigate('Record_Details')}/>*/}
-        //
-        //     </View>
-            <View style={{flex: 1}}>
+        <ScrollView
+            style={styles.scrollViewStyle}
+            // horizontal={true}
+            // pagingEnabled={true}
+        >
+        {/*//*/}
+        {/*//         /!*<View >*!/*/}
+        {/*//         /!*    <Text>your rec11ord</Text>*!/*/}
+        {/*//         /!*</View>*!/*/}
+        {/*//         /!*<View style = {styles.record01}>*!/*/}
+        {/*//         /!*    <Text>your record1</Text>*!/*/}
+        {/*//         /!*</View>*!/*/}
+        {/*//         /!*<Text style={styles.bigBlue}>Record Screen</Text>*!/*/}
+        {/*//         /!*<Button title="Go to Details" onPress={() => navigation.navigate('Record_Details')}/>*!/*/}
+        {/*//*/}
+            <View style={styles.record01}>
                 <Text>your rec11ord</Text>
 
                 <BarChart
@@ -101,8 +62,8 @@ export default function RecordScreen() {
                     }}
                     // width={Dimensions.get("window").width} // from react-native
                     // style={graphStyle}
-                    width={350}
-                    height={250}
+                    width={width * 0.85}
+                    height={height * 0.4}
                     yAxisLabel="$"
                     chartConfig={chartConfig}
                     verticalLabelRotation={30}
@@ -114,7 +75,7 @@ export default function RecordScreen() {
                 </View>
             </View>
 
-        // </ScrollView>
+        </ScrollView>
     );
 }
 const styles = StyleSheet.create({
