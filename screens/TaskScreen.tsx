@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, Button} from 'react-native';
+import {StyleSheet, Button, ScrollView} from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import {Text, View} from '../components/Themed';
@@ -18,39 +18,65 @@ export default function TaskScreen() {
         // window.location.reload(false);
     }
     return (
+
+        <ScrollView style={styles.scrollViewStyle}>
+
         <View style={styles.container}>
-            <Text style={styles.bigBlue}>Tasks Screen</Text>
+            <View style={styles.separator} lightColor="#fff" darkColor="rgba(255,255,255,0.1)"/>
+
+            <Text style={styles.title}>Finish Tasks to Boost Your Score!</Text>
+
+            <View style={styles.separator} lightColor="#eee" darkColor="#78d9a4"/>
+
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isElev} onChange={userScoreAdd} onValueChange={setElev} style={styles.checkbox}/>
 
                 <Text style={styles.label}>Stairs Not Elevator? {isElev ? '👍' : '👎'}</Text>
 
             </View>
+
+            <View style={styles.separator} lightColor="#eee" darkColor="#78d9a4"/>
+
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isGym} onValueChange={setGym} style={styles.checkbox}/>
                 <Text style={styles.label}>Going to Gym? {isGym ? '👍' : '👎'}</Text>
 
             </View>
+
+            <View style={styles.separator} lightColor="#eee" darkColor="#78d9a4"/>
+
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isDri} onValueChange={setDri} style={styles.checkbox}/>
                 <Text style={styles.label}>Not Driving to Work? {isDri ? '👍' : '👎'}</Text>
 
             </View>
+
+            <View style={styles.separator} lightColor="#eee" darkColor="#78d9a4"/>
+
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isCup} onValueChange={setCup} style={styles.checkbox}/>
                 <Text style={styles.label}>Using Your Own Cup? {isCup ? '👍' : '👎'}</Text>
 
             </View>
+
+            <View style={styles.separator} lightColor="#eee" darkColor="#78d9a4"/>
+
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isEx} onValueChange={setEx} style={styles.checkbox}/>
                 <Text style={styles.label}>Have Exercised Today? {isEx ? '👍' : '👎'}</Text>
 
             </View>
+
+            <View style={styles.separator} lightColor="#eee" darkColor="#78d9a4"/>
+
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isLight} onValueChange={setLight} style={styles.checkbox}/>
                 <Text style={styles.label}>Lights out when you sleep? {isLight ? '👍' : '👎'}</Text>
             </View>
+
         </View>
+
+        </ScrollView>
     );
 }
 
@@ -60,24 +86,34 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    scrollViewStyle: {
+        flex: 1,
+        },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
+        fontFamily: "serif"
     },
     separator: {
-        marginVertical: 30,
-        height: 1,
+        marginVertical: 20,
+        height: 2,
         width: '80%',
     },
     checkboxContainer: {
         flexDirection: 'row',
-        marginBottom: 20,
+        marginBottom: 15,
+        alignSelf: "flex-start",
+        paddingLeft: "15%",
+        alignItems: "stretch",
     },
     checkbox: {
-        alignSelf: 'center',
+        alignSelf: 'flex-start',
     },
     label: {
         margin: 8,
+        fontWeight: "bold",
+        fontFamily: "sans-serif",
+        color: "#e66a17"
     },
     bigBlue: {
         color: 'blue',
