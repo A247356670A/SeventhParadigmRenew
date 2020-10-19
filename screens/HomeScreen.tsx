@@ -138,22 +138,23 @@ export default function HomeScreen() {
         console.log(`Bar code with type ${type} and data ${data} has been scanned!`);
         if (data == 0 || data == 1) {
             updateUserScore(0,1);
-            setScanOn(false)
+            setScanOn(false);
         } else if (data == 2) {
-            updateUserScore(0,2)
-            setScanOn(false)
+            updateUserScore(0,2);
+            setScanOn(false);
 
         } else if (data == 3) {
-            updateUserScore(0,3)
-            setScanOn(false)
+            updateUserScore(0,3);
+            setScanOn(false);
 
         } else if (data == 4){
-            updateUserScore(0,4)
-            setScanOn(false)
+            updateUserScore(0,4);
+            setScanOn(false);
 
         }else {
             alert('undefined code scanned');
-            console.log("undefined code scanned")
+            setScanOn(false);
+            console.log("undefined code scanned");
         }
     };
 
@@ -168,7 +169,7 @@ export default function HomeScreen() {
         <View style={styles.taskContainer}>
             <View style={styles.taskContainer}>
                 <Text style={{
-                    fontFamily: "Montserrat",
+                    // fontFamily: "Montserrat",
                     marginTop: "28%",
                     marginBottom: "1%",
                     color: 'black',

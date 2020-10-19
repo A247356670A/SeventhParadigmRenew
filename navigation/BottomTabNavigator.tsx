@@ -29,7 +29,9 @@ import {
     TaskParamList,
     RewardParamList
 } from '../types';
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import firebase from "firebase";
+import {BarCodeScanner} from "expo-barcode-scanner";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -103,16 +105,21 @@ function TabBarIcon(props: { name: string; color: string }) {
 const HomeStack = createStackNavigator<HomeParamList>();
 
 function HomeNavigator() {
-    let isUserLogin = false;
+    //let isUserLogin = false;
+    const [isUserLogin, setUserLogin] = useState(false)
     const [isHomeModalVisible, setHomeModalVisible] = useState(false);
 
     const toggleModal = () => {
-
+        checkLoginStatus();
         setHomeModalVisible(!isHomeModalVisible);
     };
     const userLogin = () => {
         setHomeModalVisible(!isHomeModalVisible);
-        isUserLogin = true;
+        updateLoginStatus(0,true);
+    };
+    const userLogoff = () => {
+        setHomeModalVisible(!isHomeModalVisible);
+        updateLoginStatus(0,false);
     };
     let iconName: any;
     if (isUserLogin) {
@@ -120,6 +127,35 @@ function HomeNavigator() {
     } else {
         iconName = 'user-o';
     }
+    function checkLoginStatus(){
+        // let userScore: number;
+        let ref = firebase.database().ref('userStatus/' + 0 + '/isUserLogin')
+        ref.on("value", function (snapshot) {
+            setUserLogin(snapshot.val());
+            // updateUserScore(snapshot.val());
+            console.log("data pulled" + isUserLogin);
+            // HomeScreen();
+        });
+    }
+    function updateLoginStatus(levelId: number, status: boolean) {
+        firebase.database().ref('userStatus/' + levelId).set({
+            isUserLogin: status
+
+        }).then(function () {
+            checkLoginStatus();
+            console.log('Synchronization succeeded');
+        })
+            .catch(function (error) {
+                console.log('Synchronization failed');
+            });
+    }
+    useEffect(() => {
+
+        (async () => {
+            checkLoginStatus();
+        })();
+    }, []);
+
     return (
         <HomeStack.Navigator>
             <HomeStack.Screen
@@ -173,6 +209,9 @@ function HomeNavigator() {
 
                                     <Button title="Hide modal" onPress={toggleModal}/>
                                 </View>
+                                <View style={{flex: 1}}>
+                                    <Button title="logoff" onPress={userLogoff}/>
+                                </View>
                             </Modal>
                         </View>
                     ),
@@ -185,23 +224,56 @@ function HomeNavigator() {
 const RecordStack = createStackNavigator<RecordParamList>();
 
 function RecordNavigator() {
-    let isUserLogin = false;
     const [isRecordModalVisible, setRecordModalVisible] = useState(false);
-    const toggleModal = () => {
+    const [isUserLogin, setUserLogin] = useState(false)
 
+    const toggleModal = () => {
+        checkLoginStatus();
         setRecordModalVisible(!isRecordModalVisible);
-        // this.isUserLogin = false;
     };
     const userLogin = () => {
         setRecordModalVisible(!isRecordModalVisible);
-        isUserLogin = true;
+        updateLoginStatus(0,true);
+    };
+    const userLogoff = () => {
+        setRecordModalVisible(!isRecordModalVisible);
+        updateLoginStatus(0,false);
     };
     let iconName: any;
+
     if (isUserLogin) {
         iconName = 'user';
     } else {
         iconName = 'user-o';
     }
+    function checkLoginStatus(){
+        // let userScore: number;
+        let ref = firebase.database().ref('userStatus/' + 0 + '/isUserLogin')
+        ref.on("value", function (snapshot) {
+            setUserLogin(snapshot.val());
+            // updateUserScore(snapshot.val());
+            console.log("data pulled" + isUserLogin);
+            // HomeScreen();
+        });
+    }
+    function updateLoginStatus(levelId: number, status: boolean) {
+        firebase.database().ref('userStatus/' + levelId).set({
+            isUserLogin: status
+
+        }).then(function () {
+            checkLoginStatus();
+            console.log('Synchronization succeeded');
+        })
+            .catch(function (error) {
+                console.log('Synchronization failed');
+            });
+    }
+    useEffect(() => {
+
+        (async () => {
+            checkLoginStatus();
+        })();
+    }, []);
     return (
         <RecordStack.Navigator>
             <RecordStack.Screen
@@ -211,13 +283,13 @@ function RecordNavigator() {
                     title: 'Record',
                     headerTitleAlign: 'left',
                     headerStyle: {
-                        height: 135,
-                        backgroundColor: '#68BE92',
-                        borderBottomLeftRadius: 80,
+                        height: 145,
+                        backgroundColor: '#78d9a4',
+                        borderBottomLeftRadius: 70,
                     },
                     headerTitleStyle: {
                         paddingLeft: 55,
-                        paddingTop: 32,
+                        paddingTop: 10,
                         fontSize: 30,
                         color: 'white',
                     },
@@ -247,6 +319,9 @@ function RecordNavigator() {
                                     <Text>Hello!</Text>
 
                                     <Button title="Hide modal" onPress={toggleModal}/>
+                                    <View style={{flex: 1}}>
+                                        <Button title="logoff" onPress={userLogoff}/>
+                                    </View>
                                 </View>
                             </Modal>
                         </View>
@@ -260,23 +335,57 @@ function RecordNavigator() {
 const SuggestStack = createStackNavigator<SuggestParamList>();
 
 function SuggestNavigator() {
-    let isUserLogin = false;
     const [isSuggestModalVisible, setSuggestModalVisible] = useState(false);
-    const toggleModal = () => {
+    const [isUserLogin, setUserLogin] = useState(false)
 
+    const toggleModal = () => {
+        checkLoginStatus();
         setSuggestModalVisible(!isSuggestModalVisible);
-        // this.isUserLogin = false;
     };
     const userLogin = () => {
         setSuggestModalVisible(!isSuggestModalVisible);
-        isUserLogin = true;
+        updateLoginStatus(0,true);
+    };
+    const userLogoff = () => {
+        setSuggestModalVisible(!isSuggestModalVisible);
+        updateLoginStatus(0,false);
     };
     let iconName: any;
+
     if (isUserLogin) {
         iconName = 'user';
     } else {
         iconName = 'user-o';
     }
+    function checkLoginStatus(){
+        // let userScore: number;
+        let ref = firebase.database().ref('userStatus/' + 0 + '/isUserLogin')
+        ref.on("value", function (snapshot) {
+            setUserLogin(snapshot.val());
+            // updateUserScore(snapshot.val());
+            console.log("data pulled" + isUserLogin);
+            // HomeScreen();
+        });
+    }
+    function updateLoginStatus(levelId: number, status: boolean) {
+        firebase.database().ref('userStatus/' + levelId).set({
+            isUserLogin: status
+
+        }).then(function () {
+            checkLoginStatus();
+            console.log('Synchronization succeeded');
+        })
+            .catch(function (error) {
+                console.log('Synchronization failed');
+            });
+    }
+    useEffect(() => {
+
+        (async () => {
+            checkLoginStatus();
+        })();
+    }, []);
+
     return (
         <SuggestStack.Navigator>
             <SuggestStack.Screen
@@ -286,13 +395,13 @@ function SuggestNavigator() {
                     title: 'Suggest',
                     headerTitleAlign: 'left',
                     headerStyle: {
-                        height: 135,
-                        backgroundColor: '#68BE92',
-                        borderBottomLeftRadius: 80,
+                        height: 145,
+                        backgroundColor: '#78d9a4',
+                        borderBottomLeftRadius: 70,
                     },
                     headerTitleStyle: {
                         paddingLeft: 55,
-                        paddingTop: 32,
+                        paddingTop: 10,
                         fontSize: 30,
                         color: 'white',
                     },
@@ -322,6 +431,9 @@ function SuggestNavigator() {
                                     <Text>Hello!</Text>
 
                                     <Button title="Hide modal" onPress={toggleModal}/>
+                                    <View style={{flex: 1}}>
+                                        <Button title="logoff" onPress={userLogoff}/>
+                                    </View>
                                 </View>
                             </Modal>
                         </View>
@@ -335,23 +447,57 @@ function SuggestNavigator() {
 const TaskStack = createStackNavigator<TaskParamList>();
 
 function TaskNavigator() {
-    let isUserLogin = false;
     const [isTaskModalVisible, setTaskModalVisible] = useState(false);
-    const toggleModal = () => {
+    const [isUserLogin, setUserLogin] = useState(false)
 
+    const toggleModal = () => {
+        checkLoginStatus();
         setTaskModalVisible(!isTaskModalVisible);
-        // this.isUserLogin = false;
     };
     const userLogin = () => {
+        updateLoginStatus(0,true);
         setTaskModalVisible(!isTaskModalVisible);
-        isUserLogin = true;
+    };
+    const userLogoff = () => {
+        setTaskModalVisible(!isTaskModalVisible);
+        updateLoginStatus(0,false);
     };
     let iconName: any;
+
     if (isUserLogin) {
         iconName = 'user';
     } else {
         iconName = 'user-o';
     }
+    function checkLoginStatus(){
+        // let userScore: number;
+        let ref = firebase.database().ref('userStatus/' + 0 + '/isUserLogin')
+        ref.on("value", function (snapshot) {
+            setUserLogin(snapshot.val());
+            // updateUserScore(snapshot.val());
+            console.log("data pulled" + isUserLogin);
+            // HomeScreen();
+        });
+    }
+    function updateLoginStatus(levelId: number, status: boolean) {
+        firebase.database().ref('userStatus/' + levelId).set({
+            isUserLogin: status
+
+        }).then(function () {
+            checkLoginStatus();
+            console.log('Synchronization succeeded');
+        })
+            .catch(function (error) {
+                console.log('Synchronization failed');
+            });
+    }
+    useEffect(() => {
+
+        (async () => {
+            checkLoginStatus();
+        })();
+    }, []);
+
     return (
         <TaskStack.Navigator>
             <TaskStack.Screen
@@ -361,13 +507,13 @@ function TaskNavigator() {
                     title: 'Task',
                     headerTitleAlign: 'left',
                     headerStyle: {
-                        height: 135,
-                        backgroundColor: '#68BE92',
-                        borderBottomLeftRadius: 80,
+                        height: 145,
+                        backgroundColor: '#78d9a4',
+                        borderBottomLeftRadius: 70,
                     },
                     headerTitleStyle: {
                         paddingLeft: 55,
-                        paddingTop: 32,
+                        paddingTop: 10,
                         fontSize: 30,
                         color: 'white',
                     },
@@ -397,6 +543,9 @@ function TaskNavigator() {
                                     <Text>Hello!</Text>
 
                                     <Button title="Hide modal" onPress={toggleModal}/>
+                                    <View style={{flex: 1}}>
+                                        <Button title="logoff" onPress={userLogoff}/>
+                                    </View>
                                 </View>
                             </Modal>
                         </View>
@@ -411,23 +560,57 @@ function TaskNavigator() {
 const RewardStack = createStackNavigator<RewardParamList>();
 
 function RewardNavigator() {
-    let isUserLogin = false;
     const [isRewardModalVisible, setRewardModalVisible] = useState(false);
-    const toggleModal = () => {
+    const [isUserLogin, setUserLogin] = useState(false)
 
+    const toggleModal = () => {
+        checkLoginStatus();
         setRewardModalVisible(!isRewardModalVisible);
-        // this.isUserLogin = false;
     };
     const userLogin = () => {
+        updateLoginStatus(0,true);
         setRewardModalVisible(!isRewardModalVisible);
-        isUserLogin = true;
+    };
+    const userLogoff = () => {
+        setRewardModalVisible(!isRewardModalVisible);
+        updateLoginStatus(0,false);
     };
     let iconName: any;
+
     if (isUserLogin) {
         iconName = 'user';
     } else {
         iconName = 'user-o';
     }
+    function checkLoginStatus(){
+        // let userScore: number;
+        let ref = firebase.database().ref('userStatus/' + 0 + '/isUserLogin')
+        ref.on("value", function (snapshot) {
+            setUserLogin(snapshot.val());
+            // updateUserScore(snapshot.val());
+            console.log("data pulled" + isUserLogin);
+            // HomeScreen();
+        });
+    }
+    function updateLoginStatus(levelId: number, status: boolean) {
+        firebase.database().ref('userStatus/' + levelId).set({
+            isUserLogin: status
+
+        }).then(function () {
+            checkLoginStatus();
+            console.log('Synchronization succeeded');
+        })
+            .catch(function (error) {
+                console.log('Synchronization failed');
+            });
+    }
+    useEffect(() => {
+
+        (async () => {
+            checkLoginStatus();
+        })();
+    }, []);
+
     return (
         <RewardStack.Navigator>
             <RewardStack.Screen
@@ -437,13 +620,13 @@ function RewardNavigator() {
                     title: 'Reward',
                     headerTitleAlign: 'left',
                     headerStyle: {
-                        height: 135,
-                        backgroundColor: '#68BE92',
-                        borderBottomLeftRadius: 80,
+                        height: 145,
+                        backgroundColor: '#78d9a4',
+                        borderBottomLeftRadius: 70,
                     },
                     headerTitleStyle: {
                         paddingLeft: 55,
-                        paddingTop: 32,
+                        paddingTop: 10,
                         fontSize: 30,
                         color: 'white',
                     },
@@ -473,6 +656,9 @@ function RewardNavigator() {
                                     <Text>Hello!</Text>
 
                                     <Button title="Hide modal" onPress={toggleModal}/>
+                                    <View style={{flex: 1}}>
+                                        <Button title="logoff" onPress={userLogoff}/>
+                                    </View>
                                 </View>
                             </Modal>
                         </View>
