@@ -22,14 +22,24 @@ export default function RecordScreen() {
     // const [scanned, setScanned] = useState(false);
 
     const chartConfig = {
-        backgroundGradientFrom: '#1E2923',
+
+        backgroundGradientFrom: "white",
         backgroundGradientFromOpacity: 1,
-        backgroundGradientTo: '#1E2923',
+        backgroundGradientTo: "white",
         backgroundGradientToOpacity: 1,
-        color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
-        strokeWidth: 2, // optional, default 3
+        // backgroundColor: "white",
+        color: (opacity = 1) => `rgba(5, 101, 52, ${opacity})`,
+        // strokeWidth: 2, // optional, default 3
         barPercentage: 0.5,
-        useShadowColorFromDataset: false, // optional
+        // useShadowColorFromDataset: false, // optional
+
+        decimalPlaces: 0, // optional, defaults to 2dp
+        labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+        propsForDots: {
+            r: "6",
+            strokeWidth: "2",
+            stroke: "#ffa726"
+        }
     };
     return (
         <ScrollView
@@ -37,47 +47,42 @@ export default function RecordScreen() {
             // horizontal={true}
             // pagingEnabled={true}
         >
-        {/*//*/}
-        {/*//         /!*<View >*!/*/}
-        {/*//         /!*    <Text>your rec11ord</Text>*!/*/}
-        {/*//         /!*</View>*!/*/}
-        {/*//         /!*<View style = {styles.record01}>*!/*/}
-        {/*//         /!*    <Text>your record1</Text>*!/*/}
-        {/*//         /!*</View>*!/*/}
-        {/*//         /!*<Text style={styles.bigBlue}>Record Screen</Text>*!/*/}
-        {/*//         /!*<Button title="Go to Details" onPress={() => navigation.navigate('Record_Details')}/>*!/*/}
-        {/*//*/}
             <View style={styles.record01}>
                 <Text>your rec11ord</Text>
 
                 <BarChart
                     yAxisSuffix="k"
                     data={{
-                        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                        labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
                         datasets: [
                             {
-                                data: [20, 45, 28, 80, 99, 43],
+                                data: [20, 45, 28, 80, 99, 43, 50],
                             },
                         ],
                     }}
-                    // width={Dimensions.get("window").width} // from react-native
-                    // style={graphStyle}
-                    width={width * 0.85}
+                    style={{
+                        padding: '1%',
+                    }}
+                    width={width * 0.8}
                     height={height * 0.4}
-                    yAxisLabel="$"
+                    yAxisLabel="Co2: "
                     chartConfig={chartConfig}
-                    verticalLabelRotation={30}
+                    horizontalLabelRotation = {10}
+                    // verticalLabelRotation={30}
                 />
-                <View style={styles.record01}>
-                    <Text>your rec11ord</Text>
-                    <Text>your rec11ordL</Text>
-
-                </View>
             </View>
-
+            <View style={styles.record01}>
+                <Text>your rec11ord</Text>
+                <Text>your rec11ordL</Text>
+            </View>
+            <View style={styles.record02}>
+                <Text>your rec11ord</Text>
+                <Text>your rec11ordL</Text>
+            </View>
         </ScrollView>
     );
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -93,13 +98,31 @@ const styles = StyleSheet.create({
         height: 1,
         width: '80%',
     },
+    graphStyle:{
+
+    },
     record01: {
         paddingTop: '5%',
         paddingBottom: '5%',
+        paddingLeft: '2%',
         marginTop: '8%',
         borderTopRightRadius: 15,
         borderBottomRightRadius: 15,
+        backgroundColor: 'white',
+        left: 0,
+        width: '90%',
+        // height:"60%",
+        // minHeight:"60%",
+        // maxHeight:"70%",
 
+    },
+    record02: {
+        paddingTop: '5%',
+        paddingBottom: '5%',
+        paddingLeft: '2%',
+        marginTop: '3%',
+        borderTopRightRadius: 15,
+        borderBottomRightRadius: 15,
         backgroundColor: 'white',
         left: 0,
         width: '90%',
@@ -112,5 +135,6 @@ const styles = StyleSheet.create({
         flex: 1,
 
     },
+
 
 });

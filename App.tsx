@@ -7,7 +7,7 @@ import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 import * as firebase from 'firebase';
 
-import { YellowBox } from 'react-native';
+import { LogBox } from 'react-native';
 // @ts-ignore
 import _ from 'lodash';
 
@@ -28,7 +28,7 @@ export default function App() {
         appId: "1:18587242451:web:fc3a156f422340e275e926",
         measurementId: "G-9SBDPCNZ29"
     };
-    YellowBox.ignoreWarnings(['Setting a timer']);
+    LogBox.ignoreLogs(['Setting a timer']);
     const _console = _.clone(console);
     // @ts-ignore
     console.warn = message => {

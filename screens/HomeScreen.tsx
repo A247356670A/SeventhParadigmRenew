@@ -28,59 +28,43 @@ export default function HomeScreen() {
     const [isScanOn, setScanOn] = useState(false);
 
     const database = firebase.database();
-    // async function getUserScore() {
-    //     const snapshot = await database.ref('starsLevel/' + 0 + '/level').once('value');
-    //     return snapshot.val()
-    // }
-    //
-    // const userScore = await getUserScore();
 
+    const [hasPermission, setHasPermission] = useState<boolean | null>(null);
+    const [type, setType] = useState<any>(BarCodeScanner.Constants.Type.back);
+    const [scanned, setScanned] = useState<boolean>(false);
 
     let imagePath: any;
     let imageStyle: any;
 
+    useEffect(() => {
 
-    // userScore.on("child_added", function(snapshot){
-    //     console.log(snapshot.val().word);
-    //     console.log(snapshot.val().definition);
-    // });
+        (async () => {
+            const {status} = await BarCodeScanner.requestPermissionsAsync();
+            setHasPermission(status === 'granted');
+            checkUserScore();
+        })();
+    }, []);
+
+    function checkUserScore() {
+        let ref = database.ref('starsLevel/' + 0 + '/level')
+        ref.on("value", function (snapshot) {
+            setUserScore(snapshot.val());
+            console.log("data pulled" + userScore);
+        });
+    }
 
     function updateUserScore(levelId: number, Score: number) {
         database.ref('starsLevel/' + levelId).set({
             level: Score
 
         }).then(function () {
-            // let userScore: number;
-            let ref = database.ref('starsLevel/' + 0 + '/level')
-            ref.on("value", function (snapshot) {
-                setUserScore(snapshot.val());
-                // updateUserScore(snapshot.val());
-                console.log("data pulled" + userScore);
-                // HomeScreen();
-            });
+            checkUserScore();
             console.log('Synchronization succeeded');
         })
             .catch(function (error) {
                 console.log('Synchronization failed');
             });
     }
-
-    // function writeUserData(userId: number, name: string, email: string) {
-    //     database.ref('users/' + userId).set({
-    //         username: name,
-    //         email: email,
-    //     }).then(function () {
-    //         console.log('Synchronization succeeded');
-    //     })
-    //         .catch(function (error) {
-    //             console.log('Synchronization failed');
-    //         });
-    // }
-
-    // function handleScore(score:number){
-    //     setUserScore(score);
-    //     console.log(userScore)
-    // }
 
     // @ts-ignore
     if (userScore == 0 || userScore == 1) {
@@ -107,51 +91,26 @@ export default function HomeScreen() {
         }
     }
 
-
-    const [hasPermission, setHasPermission] = useState<boolean | null>(null);
-    const [type, setType] = useState<any>(BarCodeScanner.Constants.Type.back);
-    const [scanned, setScanned] = useState<boolean>(false);
-
-
-    useEffect(() => {
-
-        (async () => {
-            const {status} = await BarCodeScanner.requestPermissionsAsync();
-            setHasPermission(status === 'granted');
-        })();
-    }, []);
-
-    // const handleBarCodeScanned = (scanningResult: BarCodeScannerResult) => {
-    //     if (!scanned) {
-    //         const {type, data, bounds: {origin} = {}} = scanningResult;
-    //         // @ts-ignore
-    //         const {x, y} = origin;
-    //         if (x >= viewMinX && y >= viewMinY && x <= (viewMinX + finderWidth / 2) && y <= (viewMinY + finderHeight / 2)) {
-    //             setScanned(true);
-    //             alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-    //         }
-    //     }
-    // };
     // @ts-ignore
     const handleBarCodeScanned = ({type: type, data: data}) => {
         setScanned(true);
         console.log(`Bar code with type ${type} and data ${data} has been scanned!`);
         if (data == 0 || data == 1) {
-            updateUserScore(0,1);
+            updateUserScore(0, 1);
             setScanOn(false);
         } else if (data == 2) {
-            updateUserScore(0,2);
+            updateUserScore(0, 2);
             setScanOn(false);
 
         } else if (data == 3) {
-            updateUserScore(0,3);
+            updateUserScore(0, 3);
             setScanOn(false);
 
-        } else if (data == 4){
-            updateUserScore(0,4);
+        } else if (data == 4) {
+            updateUserScore(0, 4);
             setScanOn(false);
 
-        }else {
+        } else {
             alert('undefined code scanned');
             setScanOn(false);
             console.log("undefined code scanned");
@@ -208,10 +167,6 @@ export default function HomeScreen() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     backgroundColor: "#baedcf",
-                    // backgroundGradientFrom: "#8ee6b6",
-                    // backgroundGradientFromOpacity: 0.5,
-                    // backgroundGradientTo: "#5fd393",
-                    // backgroundGradientToOpacity: 0.5,
                     width: 190,
                     height: 190,
                     borderRadius: 100,
@@ -242,11 +197,6 @@ export default function HomeScreen() {
                 marginTop: "15%",
             }}>
 
-                {/*<Button*/}
-                {/*    title="scan"*/}
-                {/*    onPress={() => updateUserScore()}*/}
-                {/*    //writeUserData(1,'1Home_Details',"1247556670@qq.com")*/}
-                {/*/>*/}
                 <View>
                     <Dialog.Container visible={isInputPopup}>
                         <Dialog.Title>Account delete</Dialog.Title>
@@ -361,7 +311,7 @@ const styles = StyleSheet.create({
     oneStar: {
         marginBottom: "5%",
         width: "45%",
-        height: "40%",
+        height: "47%",
     },
     twoStars: {
         marginBottom: "5%",
