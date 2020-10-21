@@ -39,7 +39,7 @@ export default function TaskScreen() {
 
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isGym} onValueChange={setGym} style={styles.checkbox}/>
-                <Text style={styles.label}>Going to Gym? {isGym ? '👍' : '👎'}</Text>
+                <Text style={styles.label}>Going to the Gym? {isGym ? '👍' : '👎'}</Text>
 
             </View>
 
@@ -71,7 +71,7 @@ export default function TaskScreen() {
 
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isLight} onValueChange={setLight} style={styles.checkbox}/>
-                <Text style={styles.label}>Lights out when you sleep? {isLight ? '👍' : '👎'}</Text>
+                <Text style={styles.label}>Lights out when sleep? {isLight ? '👍' : '👎'}</Text>
             </View>
 
         </View>
