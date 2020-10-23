@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     advice: {
-
+        paddingBottom: '5%'
     },
     adviceText: {
         fontFamily: "sans-serif",
