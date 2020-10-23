@@ -4,6 +4,8 @@ import {
     StyleSheet, Button,
     Image, Dimensions, TouchableOpacity
 } from 'react-native';
+import * as Font from 'expo-font';
+
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import {Text, View} from '../components/Themed';
@@ -14,6 +16,7 @@ import Modal from "react-native-modal";
 import {BarCodeScanner, BarCodeScannerResult} from "expo-barcode-scanner";
 import BarcodeMask from "react-native-barcode-mask";
 import Icon from "react-native-vector-icons/FontAwesome";
+import App from "../App";
 
 const finderWidth: number = 280;
 const finderHeight: number = 230;
@@ -128,12 +131,12 @@ export default function HomeScreen() {
         <View style={styles.taskContainer}>
             <View style={styles.taskContainer}>
                 <Text style={{
-                    // fontFamily: "Montserrat",
+                    fontFamily: "Montserrat_600SemiBold",
                     marginTop: "28%",
                     marginBottom: "1%",
                     color: 'black',
                     fontSize: 21,
-                    fontWeight: 'bold',
+                    // fontWeight: 'bold',
                 }}>Welcome to
                 </Text>
                 <Text style={{

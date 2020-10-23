@@ -22,12 +22,12 @@ export default function RewardScreen() {
         >
         <View style={styles.container}>
 
-            <View style={{flexDirection:'row', }}>
+            <View style={{flexDirection:'row',marginTop:20, }}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/two_star.png')}
+                    source={require('../assets/images/apple.jpg')}
                 />
-                <Text style={styles.title}>Apple</Text>
+                <Text style={styles.title}> Apple     </Text>
                 <View style={{}}>
                     <Button
                         title="Redeem"
@@ -40,9 +40,9 @@ export default function RewardScreen() {
             <View style={{flexDirection:'row', }}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/two_star.png')}
+                    source={require('../assets/images/banana.jpg')}
                 />
-                <Text style={styles.title}>Apple</Text>
+                <Text style={styles.title}>Banana   </Text>
                 <View style={{}}>
                     <Button
                         title="Redeem"
@@ -55,9 +55,9 @@ export default function RewardScreen() {
             <View style={{flexDirection:'row', }}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/two_star.png')}
+                    source={require('../assets/images/macbook.jpg')}
                 />
-                <Text style={styles.title}>Apple</Text>
+                <Text style={styles.title}>Macbook</Text>
                 <View style={{}}>
                     <Button
                         title="Redeem"
@@ -70,9 +70,9 @@ export default function RewardScreen() {
             <View style={{flexDirection:'row', }}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/two_star.png')}
+                    source={require('../assets/images/iphone.jpg')}
                 />
-                <Text style={styles.title}>Apple</Text>
+                <Text style={styles.title}>Iphone    </Text>
                 <View style={{}}>
                     <Button
                         title="Redeem"
@@ -85,9 +85,9 @@ export default function RewardScreen() {
             <View style={{flexDirection:'row', }}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/two_star.png')}
+                    source={require('../assets/images/cash.jpg')}
                 />
-                <Text style={styles.title}>Apple</Text>
+                <Text style={styles.title}> $1 </Text>
                 <View style={{}}>
                     <Button
                         title="Redeem"
@@ -99,9 +99,9 @@ export default function RewardScreen() {
             <View style={{flexDirection:'row', }}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/two_star.png')}
+                    source={require('../assets/images/cash.jpg')}
                 />
-                <Text style={styles.title}>Apple</Text>
+                <Text style={styles.title}>$5</Text>
                 <View style={{}}>
                     <Button
                         title="Redeem"
@@ -113,9 +113,9 @@ export default function RewardScreen() {
             <View style={{flexDirection:'row', }}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/two_star.png')}
+                    source={require('../assets/images/cash.jpg')}
                 />
-                <Text style={styles.title}>Apple</Text>
+                <Text style={styles.title}>$10</Text>
                 <View style={{}}>
                     <Button
                         title="Redeem"
@@ -127,9 +127,9 @@ export default function RewardScreen() {
             <View style={{flexDirection:'row', }}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/two_star.png')}
+                    source={require('../assets/images/cash.jpg')}
                 />
-                <Text style={styles.title}>Apple</Text>
+                <Text style={styles.title}>$20 </Text>
                 <View style={{}}>
                     <Button
                         title="Redeem"
@@ -177,16 +177,20 @@ const styles = StyleSheet.create({
 
     },
     container: {
+
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+
+
 
     },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginRight:50,
-        marginLeft:30
+        width:100,
+        marginRight: 50
+
 
 
     },
@@ -194,11 +198,14 @@ const styles = StyleSheet.create({
         marginVertical: 25,
         height: 1,
         width: '80%',
+
+
     },
     image:{
         width: 50,
         height: 40,
-        marginRight:50,
+        marginRight:70,
+
 
     }
 });
