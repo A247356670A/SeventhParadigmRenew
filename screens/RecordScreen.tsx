@@ -13,6 +13,7 @@ import {useEffect, useState} from 'react';
 import {Text, View} from '../components/Themed';
 import {BarCodeScanner, BarCodeScannerResult} from 'expo-barcode-scanner';
 import BarcodeMask from 'react-native-barcode-mask';
+import {Montserrat_700Bold} from "@expo-google-fonts/montserrat";
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -48,7 +49,7 @@ export default function RecordScreen() {
             // pagingEnabled={true}
         >
             <View style={styles.record01}>
-                <Text>your rec11ord</Text>
+                <Text style={styles.bigText}>Your record</Text>
 
                 <BarChart
                     yAxisSuffix="k"
@@ -72,12 +73,12 @@ export default function RecordScreen() {
                 />
             </View>
             <View style={styles.record01}>
-                <Text>your rec11ord</Text>
-                <Text>your rec11ordL</Text>
+                <Text style={styles.smallText}>Co2</Text>
+                <Text style={styles.bigText}>25K</Text>
             </View>
             <View style={styles.record02}>
-                <Text>your rec11ord</Text>
-                <Text>your rec11ordL</Text>
+                <Text style={styles.smallText}>Changes</Text>
+                <Text style={styles.bigText}>45%</Text>
             </View>
         </ScrollView>
     );
@@ -93,6 +94,20 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
     },
+    bigText: {
+        fontFamily: "Montserrat_700Bold",
+        fontSize: 25,
+        //fontWeight: 'bold',
+        left: '10%',
+        paddingBottom:'5%',
+    },
+    smallText: {
+        fontFamily: "Montserrat_700Bold",
+        fontSize: 13,
+        color: "tomato",
+        //fontWeight: 'bold',
+        left: '5%',
+    },
     separator: {
         marginVertical: 30,
         height: 1,
@@ -103,11 +118,11 @@ const styles = StyleSheet.create({
     },
     record01: {
         paddingTop: '5%',
-        paddingBottom: '5%',
+        paddingBottom: '3%',
         paddingLeft: '2%',
-        marginTop: '8%',
-        borderTopRightRadius: 15,
-        borderBottomRightRadius: 15,
+        marginTop: '5%',
+        borderTopRightRadius: 25,
+        borderBottomRightRadius: 25,
         backgroundColor: 'white',
         left: 0,
         width: '90%',
@@ -120,9 +135,9 @@ const styles = StyleSheet.create({
         paddingTop: '5%',
         paddingBottom: '5%',
         paddingLeft: '2%',
-        marginTop: '3%',
-        borderTopRightRadius: 15,
-        borderBottomRightRadius: 15,
+        marginTop: '2%',
+        borderTopRightRadius: 25,
+        borderBottomRightRadius: 25,
         backgroundColor: 'white',
         left: 0,
         width: '90%',

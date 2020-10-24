@@ -17,6 +17,7 @@ import {BarCodeScanner, BarCodeScannerResult} from "expo-barcode-scanner";
 import BarcodeMask from "react-native-barcode-mask";
 import Icon from "react-native-vector-icons/FontAwesome";
 import App from "../App";
+import {Montserrat_400Regular} from "@expo-google-fonts/montserrat";
 
 const finderWidth: number = 280;
 const finderHeight: number = 230;
@@ -131,7 +132,7 @@ export default function HomeScreen() {
         <View style={styles.taskContainer}>
             <View style={styles.taskContainer}>
                 <Text style={{
-                    fontFamily: "Montserrat_600SemiBold",
+                    fontFamily: "Montserrat_700Bold",
                     marginTop: "28%",
                     marginBottom: "1%",
                     color: 'black',
@@ -144,13 +145,15 @@ export default function HomeScreen() {
                     marginBottom: "1%",
                     color: 'black',
                     fontSize: 21,
-                    fontWeight: 'bold',
+                    fontFamily: "Montserrat_700Bold",
                 }}>CO2 emission control system
                 </Text>
                 <Text style={{
                     marginBottom: "1%",
                     color: 'black',
                     fontSize: 17,
+                    fontFamily: "Montserrat_400Regular",
+
                 }}>Today your level is
                 </Text>
 
@@ -185,13 +188,13 @@ export default function HomeScreen() {
                     paddingBottom: "2%",
                     color: 'black',
                     fontSize: 21,
-                    fontWeight: 'bold',
+                    fontFamily: "Montserrat_700Bold",
                 }}>Congratulations!</Text>
                 <Text style={{
                     paddingBottom: "2%",
                     color: 'black',
                     fontSize: 21,
-                    fontWeight: 'bold',
+                    fontFamily: "Montserrat_700Bold",
                 }}>Please keep it up</Text>
             </View>
             <View style={{
@@ -212,18 +215,13 @@ export default function HomeScreen() {
                         {/*<Dialog.Button label="Delete"  onPress={}/>*/}
                     </Dialog.Container>
                 </View>
-                <Button
-                    title="scan"
-                    onPress={() => console.log(updateUserScore(0, userScore))}
-                />
-                <Button
-                    title="test"
-                    onPress={() => console.log(setInputPopup(!isInputPopup))}
-                />
-                <Button
-                    title="testScan"
-                    onPress={() => setScanOn(true)}
-                />
+                <TouchableOpacity onPress={() => setScanOn(true)} style={styles.appButtonContainer}>
+                    <Text style={styles.appButtonText}>Scan</Text>
+                </TouchableOpacity>
+                {/*<Button*/}
+                {/*    title="Scan"*/}
+                {/*    onPress={() => setScanOn(true)}*/}
+                {/*/>*/}
                 <Modal style={styles.login} isVisible={isScanOn}>
                     <BarCodeScanner onBarCodeScanned={handleBarCodeScanned}
                                     type={type}
@@ -237,13 +235,13 @@ export default function HomeScreen() {
                                 flexDirection: 'row',
                             }}>
                             <Icon
-                                name={'user'}
+                                name={'arrow-left'}
                                 onPress={() => setScanOn(false)}
                                 color={Colors.white}
                                 size={30}
                                 style={{
                                     paddingLeft: "3%",
-                                    paddingTop: "1%"
+                                    paddingTop: "2%"
                                 }}
                             />
                             <TouchableOpacity
@@ -279,6 +277,21 @@ export default function HomeScreen() {
 
 }
 const styles = StyleSheet.create({
+    appButtonText: {
+        fontSize: 18,
+        color: "#fff",
+        fontFamily: "Montserrat_700Bold",
+        alignSelf: "center",
+        textTransform: "uppercase"
+    },
+    appButtonContainer: {
+        elevation: 8,
+        backgroundColor: "#78d9a4",
+        borderRadius: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 12
+    },
+
     login: {
         display: 'flex',
         position: 'absolute',
@@ -323,12 +336,12 @@ const styles = StyleSheet.create({
     },
     threeStars: {
         marginBottom: "5%",
-        width: "75%",
+        width: "90%",
         height: "40%",
     },
     fiveStars: {
         marginBottom: "5%",
-        width: "80%",
+        width: "90%",
         height: "40%",
     },
     unhappyFace: {

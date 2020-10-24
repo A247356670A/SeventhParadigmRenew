@@ -10,8 +10,11 @@ import { ScrollView, Dimensions, TouchableOpacity} from 'react-native';
 // import {Avatar} from "@material-ui/core";
 
 export default function RewardScreen() {
-
-
+    function confirm(){
+        setInputPopup(!isInputPopup);
+        setConfirmPopup(!confirmPopup);
+    }
+    const [confirmPopup, setConfirmPopup] = useState(false);
     const [isInputPopup, setInputPopup] = useState(false);
 
     return (
@@ -28,12 +31,10 @@ export default function RewardScreen() {
                     source={require('../assets/images/apple.jpg')}
                 />
                 <Text style={styles.title}> Apple     </Text>
-                <View style={{}}>
-                    <Button
-                        title="Redeem"
-                        onPress={() => console.log(setInputPopup(!isInputPopup))}
-                    />
-                </View>
+                <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
+                    <Text style={styles.appButtonText}>Redeem</Text>
+                </TouchableOpacity>
+
                 </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
@@ -43,12 +44,9 @@ export default function RewardScreen() {
                     source={require('../assets/images/banana.jpg')}
                 />
                 <Text style={styles.title}>Banana   </Text>
-                <View style={{}}>
-                    <Button
-                        title="Redeem"
-                        onPress={() => console.log(setInputPopup(!isInputPopup))}
-                    />
-                </View>
+                <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
+                    <Text style={styles.appButtonText}>Redeem</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
@@ -58,12 +56,9 @@ export default function RewardScreen() {
                     source={require('../assets/images/macbook.jpg')}
                 />
                 <Text style={styles.title}>Macbook</Text>
-                <View style={{}}>
-                    <Button
-                        title="Redeem"
-                        onPress={() => console.log(setInputPopup(!isInputPopup))}
-                    />
-                </View>
+                <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
+                    <Text style={styles.appButtonText}>Redeem</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
@@ -73,12 +68,9 @@ export default function RewardScreen() {
                     source={require('../assets/images/iphone.jpg')}
                 />
                 <Text style={styles.title}>Iphone    </Text>
-                <View style={{}}>
-                    <Button
-                        title="Redeem"
-                        onPress={() => console.log(setInputPopup(!isInputPopup))}
-                    />
-                </View>
+                <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
+                    <Text style={styles.appButtonText}>Redeem</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
@@ -88,12 +80,9 @@ export default function RewardScreen() {
                     source={require('../assets/images/cash.jpg')}
                 />
                 <Text style={styles.title}> $1 </Text>
-                <View style={{}}>
-                    <Button
-                        title="Redeem"
-                        onPress={() => console.log(setInputPopup(!isInputPopup))}
-                    />
-                </View>
+                <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
+                    <Text style={styles.appButtonText}>Redeem</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
             <View style={{flexDirection:'row', }}>
@@ -102,12 +91,9 @@ export default function RewardScreen() {
                     source={require('../assets/images/cash.jpg')}
                 />
                 <Text style={styles.title}>$5</Text>
-                <View style={{}}>
-                    <Button
-                        title="Redeem"
-                        onPress={() => console.log(setInputPopup(!isInputPopup))}
-                    />
-                </View>
+                <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
+                    <Text style={styles.appButtonText}>Redeem</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
             <View style={{flexDirection:'row', }}>
@@ -116,12 +102,9 @@ export default function RewardScreen() {
                     source={require('../assets/images/cash.jpg')}
                 />
                 <Text style={styles.title}>$10</Text>
-                <View style={{}}>
-                    <Button
-                        title="Redeem"
-                        onPress={() => console.log(setInputPopup(!isInputPopup))}
-                    />
-                </View>
+                <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
+                    <Text style={styles.appButtonText}>Redeem</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
             <View style={{flexDirection:'row', }}>
@@ -130,12 +113,9 @@ export default function RewardScreen() {
                     source={require('../assets/images/cash.jpg')}
                 />
                 <Text style={styles.title}>$20 </Text>
-                <View style={{}}>
-                    <Button
-                        title="Redeem"
-                        onPress={() => console.log(setInputPopup(!isInputPopup))}
-                    />
-                </View>
+                <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
+                    <Text style={styles.appButtonText}>Redeem</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
@@ -161,9 +141,18 @@ export default function RewardScreen() {
                     </Dialog.Description>
                     {/*<Dialog.Input label={"input number"} onChangeText={(score: string) => handleScore(score)}/>*/}
 
-                    <Dialog.Button label="confirm" onPress={() => setInputPopup(!isInputPopup)}/>
+                    <Dialog.Button label="confirm" onPress={() => confirm()}/>
                     <Dialog.Button label="cancel" onPress={() => setInputPopup(!isInputPopup)}/>
                     {/*<Dialog.Button label="Delete"  onPress={}/>*/}
+                </Dialog.Container>
+                <Dialog.Container visible={confirmPopup}>
+                    <Dialog.Title>Congratulation!</Dialog.Title>
+                    <Dialog.Description>
+                        You have successfully redeemed your reward.
+                    </Dialog.Description>
+                    {/*<Dialog.Input label={"input number"} onChangeText={(score: string) => handleScore(score)}/>*/}
+
+                    <Dialog.Button label="OK" onPress={() => setConfirmPopup(!confirmPopup)}/>
                 </Dialog.Container>
             </View>
         </View>
@@ -172,6 +161,20 @@ export default function RewardScreen() {
 }
 
 const styles = StyleSheet.create({
+    appButtonText: {
+        fontSize: 13,
+        color: "#fff",
+        fontFamily: "Montserrat_700Bold",
+        alignSelf: "center",
+        textTransform: "uppercase"
+    },
+    appButtonContainer: {
+        elevation: 8,
+        backgroundColor: "#78d9a4",
+        borderRadius: 10,
+        paddingVertical: "3%",
+        paddingHorizontal: "4%"
+    },
     scrollViewStyle: {
         flex: 1,
 
@@ -188,8 +191,8 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        width:100,
-        marginRight: 50
+        width:"25%",
+        marginRight: "11%",
 
 
 
