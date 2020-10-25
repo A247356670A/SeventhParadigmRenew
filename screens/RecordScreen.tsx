@@ -20,8 +20,6 @@ const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
 export default function RecordScreen() {
-    // const [hasPermission, setHasPermission] = useState(null);
-    // const [scanned, setScanned] = useState(false);
 
     const chartConfig = {
 
@@ -106,7 +104,7 @@ export default function RecordScreen() {
                 // pagingEnabled={true}
             >
                 <View style={styles.record01}>
-                    <Text style={styles.bigText}>Your record</Text>
+                    <Text style={styles.bigText}>Suggestion record</Text>
 
                     <BarChart
                         yAxisSuffix="k"
@@ -145,7 +143,7 @@ export default function RecordScreen() {
                 // pagingEnabled={true}
             >
                 <View style={styles.record01}>
-                    <Text style={styles.bigText}>Your record</Text>
+                    <Text style={styles.bigText}>Task record</Text>
 
                     <BarChart
                         yAxisSuffix="k"

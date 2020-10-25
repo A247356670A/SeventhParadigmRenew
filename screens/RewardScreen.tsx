@@ -25,7 +25,7 @@ export default function RewardScreen() {
         >
         <View style={styles.container}>
 
-            <View style={{flexDirection:'row',marginTop:20, }}>
+            <View style={styles.container0}>
                 <Image
                     style={styles.image}
                     source={require('../assets/images/apple.jpg')}
@@ -38,7 +38,7 @@ export default function RewardScreen() {
                 </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
-            <View style={{flexDirection:'row', }}>
+            <View style={styles.container1}>
                 <Image
                     style={styles.image}
                     source={require('../assets/images/banana.jpg')}
@@ -50,7 +50,7 @@ export default function RewardScreen() {
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
-            <View style={{flexDirection:'row', }}>
+            <View style={styles.container1}>
                 <Image
                     style={styles.image}
                     source={require('../assets/images/macbook.jpg')}
@@ -62,7 +62,7 @@ export default function RewardScreen() {
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
-            <View style={{flexDirection:'row', }}>
+            <View style={styles.container1}>
                 <Image
                     style={styles.image}
                     source={require('../assets/images/iphone.jpg')}
@@ -74,7 +74,7 @@ export default function RewardScreen() {
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
-            <View style={{flexDirection:'row', }}>
+            <View style={styles.container1}>
                 <Image
                     style={styles.image}
                     source={require('../assets/images/cash.jpg')}
@@ -85,7 +85,7 @@ export default function RewardScreen() {
                 </TouchableOpacity>
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
-            <View style={{flexDirection:'row', }}>
+            <View style={styles.container1}>
                 <Image
                     style={styles.image}
                     source={require('../assets/images/cash.jpg')}
@@ -96,7 +96,7 @@ export default function RewardScreen() {
                 </TouchableOpacity>
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
-            <View style={{flexDirection:'row', }}>
+            <View style={styles.container1}>
                 <Image
                     style={styles.image}
                     source={require('../assets/images/cash.jpg')}
@@ -107,7 +107,7 @@ export default function RewardScreen() {
                 </TouchableOpacity>
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
-            <View style={{flexDirection:'row', }}>
+            <View style={styles.container1}>
                 <Image
                     style={styles.image}
                     source={require('../assets/images/cash.jpg')}
@@ -180,14 +180,21 @@ const styles = StyleSheet.create({
 
     },
     container: {
-
+        backgroundColor:"#F2F2F2",
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-
-
-
     },
+    container1: {
+        backgroundColor:"#F2F2F2",
+        flexDirection:'row',
+    },
+    container0: {
+        marginTop:"5%",
+        backgroundColor:"#F2F2F2",
+        flexDirection:'row',
+    },
+
     title: {
         fontSize: 20,
         fontWeight: 'bold',
@@ -201,6 +208,7 @@ const styles = StyleSheet.create({
         marginVertical: 25,
         height: 1,
         width: '80%',
+        backgroundColor:"#d6d6d6",
 
 
     },
@@ -208,7 +216,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 40,
         marginRight:70,
-
+        backgroundColor:"#F2F2F2",
 
     }
 });
