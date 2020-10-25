@@ -36,7 +36,7 @@ export default function SuggestScreen() {
             <View style={styles.container}>
 
                 <View style={styles.separator0} lightColor="#fff" darkColor="rgba(255,255,255,0.1)"/>
-                <Text style={styles.title}>Suggestions for one star</Text>
+                <Text style={styles.title}>Suggestions for Low Starer</Text>
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
@@ -78,7 +78,7 @@ export default function SuggestScreen() {
             {userScore == 3 &&
             <View style={styles.container}>
                 <View style={styles.separator0} lightColor="#fff" darkColor="rgba(255,255,255,0.1)"/>
-                <Text style={styles.title}>Suggestions for three star</Text>
+                <Text style={styles.title}>Suggestions for Medium Starer</Text>
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
@@ -121,7 +121,7 @@ export default function SuggestScreen() {
             {userScore == 4 &&
             <View style={styles.container}>
                 <View style={styles.separator0} lightColor="#fff" darkColor="rgba(255,255,255,0.1)"/>
-                <Text style={styles.title}>Suggestions for five star</Text>
+                <Text style={styles.title}>Suggestions for High Starer</Text>
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
