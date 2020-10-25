@@ -5,13 +5,13 @@ import {useEffect, useState} from "react";
 import Modal from "react-native-modal";
 import {BarCodeScanner} from "expo-barcode-scanner";
 import firebase from "firebase";
-import ScrollableTabView, {DefaultTabBar, ScrollableTabBar} from 'react-native-scrollable-tab-view';
+
 
 export default function SuggestScreen() {
 
     const [userScore, setUserScore] = useState(0);
     const database = firebase.database();
-    // var ScrollableTabView = require('react-native-scrollable-tab-view');
+    const ScrollableTabView = require('react-native-scrollable-tab-view');
 
     useEffect(() => {
 
@@ -30,18 +30,6 @@ export default function SuggestScreen() {
 
 
     return (
-        // // @ts-ignore
-        // <ScrollableTabView
-        //     style={{ marginTop: 20 }}
-        //     initialPage={1}
-        //     renderTabBar={() => <DefaultTabBar />}
-        // >
-        //     <Text tabLabel='Tab #1'>My</Text>
-        //     <Text tabLabel='Tab #2'>favorite</Text>
-        //     <Text tabLabel='Tab #3'>project</Text>
-        //
-        // </ScrollableTabView>
-
         <ScrollView style={styles.scrollViewStyle}>
             {userScore == 0 || userScore == 1 &&
 
@@ -52,7 +40,8 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REDUCE: </Text> Downsize what you
+                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REDUCE: </Text> Downsize what
+                        you
                         purchase, opting to be mindful of what you need.</Text>
                 </View>
 
@@ -73,7 +62,8 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>RECYCLE: </Text> Properly recycle
+                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>RECYCLE: </Text> Properly
+                        recycle
                         any plastic, paper, glass or metal that comes.</Text>
                 </View>
 
@@ -92,7 +82,8 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REDUCE: </Text> Downsize what you
+                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REDUCE: </Text> Downsize what
+                        you
                         purchase, opting to be mindful of what you need.</Text>
                 </View>
 
@@ -113,7 +104,8 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>RECYCLE: </Text> Properly recycle
+                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>RECYCLE: </Text> Properly
+                        recycle
                         any plastic, paper, glass or metal that comes.</Text>
                 </View>
 
@@ -170,14 +162,21 @@ export default function SuggestScreen() {
         </ScrollView>
     );
 }
-    // )
+
+
 const styles = StyleSheet.create({
+    icon: {
+        width: 300,
+        height: 300,
+        alignSelf: 'center',
+    },
     container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         paddingLeft: '8%',
-        paddingRight: '8%'
+        paddingRight: '8%',
+        backgroundColor:"#F2F2F2",
     },
     title: {
         fontSize: 25,
@@ -195,8 +194,10 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 1,
         width: '80%',
+        backgroundColor:"#d6d6d6",
     },
     advice: {
+        backgroundColor:"#F2F2F2",
         paddingTop: '1%',
         paddingBottom: '2%'
     },

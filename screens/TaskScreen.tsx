@@ -22,7 +22,7 @@ export default function TaskScreen() {
         <ScrollView style={styles.scrollViewStyle}>
 
         <View style={styles.container}>
-            <View style={styles.separator} lightColor="#fff" darkColor="rgba(255,255,255,0.1)"/>
+            <View style={styles.separator0} lightColor="#fff" darkColor="rgba(255,255,255,0.1)"/>
 
             <Text style={styles.title}>Finish Tasks to Boost Your Score!</Text>
 
@@ -85,21 +85,32 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor:"#F2F2F2",
+
     },
     scrollViewStyle: {
         flex: 1,
+
         },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
         fontFamily: "serif"
     },
+    separator0: {
+        marginVertical: 20,
+        height: 2,
+        width: '80%',
+        backgroundColor:"#F2F2F2",
+    },
     separator: {
         marginVertical: 20,
         height: 2,
         width: '80%',
+        backgroundColor:"#d6d6d6",
     },
     checkboxContainer: {
+        backgroundColor:"#F2F2F2",
         flexDirection: 'row',
         marginBottom: 15,
         alignSelf: "flex-start",

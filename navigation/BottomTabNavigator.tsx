@@ -164,10 +164,14 @@ function HomeNavigator() {
                 options={{
                     headerTitle: 'Welcome',
                     headerTitleAlign: 'left',
+
                     headerStyle: {
+                        overflow: "hidden",
+                        elevation:0,
                         height: 145,
                         backgroundColor: '#78d9a4',
                         borderBottomLeftRadius: 70,
+                        backfaceVisibility:'hidden',
                     },
                     headerTitleStyle: {
                         paddingLeft: 55,
@@ -280,15 +284,18 @@ function RecordNavigator() {
                 name="RecordScreen"
                 component={RecordScreen}
                 options={{
+
+                    animationEnabled:true,
                     title: 'Record',
                     headerTitleAlign: 'left',
                     headerStyle: {
-                        height: 145,
+                        elevation:0,
+                        height: 120,
                         backgroundColor: '#78d9a4',
-                        borderBottomLeftRadius: 70,
+                        // borderBottomLeftRadius: 70,
                     },
                     headerTitleStyle: {
-                        paddingLeft: 55,
+                        paddingLeft: 45,
                         paddingTop: 10,
                         fontSize: 30,
                         color: 'white',
@@ -395,6 +402,7 @@ function SuggestNavigator() {
                     title: 'Suggest',
                     headerTitleAlign: 'left',
                     headerStyle: {
+                        elevation:0,
                         height: 145,
                         backgroundColor: '#78d9a4',
                         borderBottomLeftRadius: 70,
@@ -507,6 +515,7 @@ function TaskNavigator() {
                     title: 'Task',
                     headerTitleAlign: 'left',
                     headerStyle: {
+                        elevation:0,
                         height: 145,
                         backgroundColor: '#78d9a4',
                         borderBottomLeftRadius: 70,
@@ -620,6 +629,7 @@ function RewardNavigator() {
                     title: 'Reward',
                     headerTitleAlign: 'left',
                     headerStyle: {
+                        elevation:0,
                         height: 145,
                         backgroundColor: '#78d9a4',
                         borderBottomLeftRadius: 70,

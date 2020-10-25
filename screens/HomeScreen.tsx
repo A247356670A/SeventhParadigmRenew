@@ -130,34 +130,60 @@ export default function HomeScreen() {
 
     return (
         <View style={styles.taskContainer}>
-            <View style={styles.taskContainer}>
-                <Text style={{
-                    fontFamily: "Montserrat_700Bold",
-                    marginTop: "28%",
-                    marginBottom: "1%",
-                    color: 'black',
-                    fontSize: 21,
-                    // fontWeight: 'bold',
-                }}>Welcome to
-                </Text>
-                <Text style={{
-                    paddingBottom: "1%",
-                    marginBottom: "1%",
-                    color: 'black',
-                    fontSize: 21,
-                    fontFamily: "Montserrat_700Bold",
-                }}>CO2 emission control system
-                </Text>
-                <Text style={{
-                    marginBottom: "1%",
-                    color: 'black',
-                    fontSize: 17,
-                    fontFamily: "Montserrat_400Regular",
+                <View style={styles.taskContainer}>
+                    <Text style={{
+                        fontFamily: "Montserrat_700Bold",
+                        marginTop: "28%",
+                        marginBottom: "1%",
+                        color: 'black',
+                        fontSize: 21,
+                        // fontWeight: 'bold',
+                    }}>Welcome to
+                    </Text>
+                    <Text style={{
+                        paddingBottom: "1%",
+                        marginBottom: "1%",
+                        color: 'black',
+                        fontSize: 21,
+                        fontFamily: "Montserrat_700Bold",
+                    }}>CO2 emission control system
+                    </Text>
+                    <Text style={{
+                        marginBottom: "1%",
+                        color: 'black',
+                        fontSize: 17,
+                        fontFamily: "Montserrat_400Regular",
 
-                }}>Today your level is
-                </Text>
+                    }}>Today your level is
+                    </Text>
 
-            </View>
+                </View>
+            {userScore == 0 || userScore == 1 &&
+                <View style={{
+                    zIndex: 10,
+                    marginTop: "25%",
+                    backgroundColor: "#d8f5e3",
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 225,
+                    height: 225,
+                    borderRadius: 225 / 2,
+                }}>
+                    <View style={{
+                        zIndex: 99,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: "#baedcf",
+                        width: 190,
+                        height: 190,
+                        borderRadius: 100,
+                    }}>
+                        <Image style={imageStyle}
+                               source={imagePath}/>
+                    </View>
+                </View>
+            }
+            {userScore == 2 &&
             <View style={{
                 zIndex: 10,
                 marginTop: "25%",
@@ -181,7 +207,75 @@ export default function HomeScreen() {
                            source={imagePath}/>
                 </View>
             </View>
-
+            }
+            {userScore == 3 &&
+            <View style={{
+                zIndex: 10,
+                marginTop: "25%",
+                backgroundColor: "#f5e4da",
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 225,
+                height: 225,
+                borderRadius: 225 / 2,
+            }}>
+                <View style={{
+                    zIndex: 99,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: "#f2c3a8",
+                    width: 190,
+                    height: 190,
+                    borderRadius: 100,
+                }}>
+                    <Image style={imageStyle}
+                           source={imagePath}/>
+                </View>
+            </View>
+            }
+            {userScore == 4 &&
+            <View style={{
+                zIndex: 10,
+                marginTop: "25%",
+                backgroundColor: "#f5dddb",
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 225,
+                height: 225,
+                borderRadius: 225 / 2,
+            }}>
+                <View style={{
+                    zIndex: 99,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: "#e8b7b5",
+                    width: 190,
+                    height: 190,
+                    borderRadius: 100,
+                }}>
+                    <Image style={imageStyle}
+                           source={imagePath}/>
+                </View>
+            </View>
+            }
+            {userScore == 0 || userScore == 1 &&
+                <View style={styles.taskContainer}>
+                    <Text style={{
+                        marginTop: "15%",
+                        paddingBottom: "2%",
+                        color: 'black',
+                        fontSize: 21,
+                        fontFamily: "Montserrat_700Bold",
+                    }}>Congratulations!</Text>
+                    <Text style={{
+                        paddingBottom: "2%",
+                        color: 'black',
+                        fontSize: 21,
+                        fontFamily: "Montserrat_700Bold",
+                    }}>Please keep it up</Text>
+                </View>
+            }
+            {userScore == 2 &&
             <View style={styles.taskContainer}>
                 <Text style={{
                     marginTop: "15%",
@@ -197,27 +291,69 @@ export default function HomeScreen() {
                     fontFamily: "Montserrat_700Bold",
                 }}>Please keep it up</Text>
             </View>
+            }
+            {userScore == 3 &&
+            <View style={styles.taskContainer}>
+                <Text style={{
+                    marginTop: "15%",
+                    paddingBottom: "2%",
+                    color: 'black',
+                    fontSize: 18,
+                    fontFamily: "Montserrat_700Bold",
+                    textAlign: "center",
+                }}>Today's lifestyle is not environmentally friendly!</Text>
+                <Text style={{
+                    paddingBottom: "2%",
+                    color: 'black',
+                    fontSize: 21,
+                    fontFamily: "Montserrat_700Bold",
+                }}>Please keep going!</Text>
+            </View>
+            }
+            {userScore == 4 &&
+            <View style={styles.taskContainer}>
+                <Text style={{
+                    marginTop: "15%",
+                    paddingBottom: "2%",
+                    color: 'black',
+                    fontSize: 21,
+                    fontFamily: "Montserrat_700Bold",
+                }}>Seems to be problematic</Text>
+                <Text style={{
+                    paddingBottom: "2%",
+                    color: 'black',
+                    fontSize: 21,
+                    fontFamily: "Montserrat_700Bold",
+                }}>Need to improve!</Text>
+            </View>
+            }
             <View style={{
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginTop: "15%",
+                backgroundColor:"#F2F2F2",
+
             }}>
-
-                <View>
-                    <Dialog.Container visible={isInputPopup}>
-                        <Dialog.Title>Account delete</Dialog.Title>
-                        <Dialog.Description>
-                            Do you want to delete this account? You cannot undo this action.
-                        </Dialog.Description>
-                        {/*<Dialog.Input label={"input number"} onChangeText={(score: string) => handleScore(score)}/>*/}
-
-                        <Dialog.Button label="Cancel" onPress={() => setInputPopup(!isInputPopup)}/>
-                        {/*<Dialog.Button label="Delete"  onPress={}/>*/}
-                    </Dialog.Container>
-                </View>
-                <TouchableOpacity onPress={() => setScanOn(true)} style={styles.appButtonContainer}>
-                    <Text style={styles.appButtonText}>Scan</Text>
+                {userScore == 0 || userScore == 1 &&
+                <TouchableOpacity onPress={() => setScanOn(true)} style={styles.appButtonContainer1}>
+                    <Text style={styles.appButtonText1}>Click to Scan</Text>
                 </TouchableOpacity>
+                }
+                {userScore == 2 &&
+                <TouchableOpacity onPress={() => setScanOn(true)} style={styles.appButtonContainer1}>
+                    <Text style={styles.appButtonText1}>Click to Scan</Text>
+                </TouchableOpacity>
+                }
+                {userScore == 3 &&
+                <TouchableOpacity onPress={() => setScanOn(true)} style={styles.appButtonContainer3}>
+                    <Text style={styles.appButtonText3}>Click to Scan</Text>
+                </TouchableOpacity>
+                }
+                {userScore == 4 &&
+                <TouchableOpacity onPress={() => setScanOn(true)} style={styles.appButtonContainer4}>
+                    <Text style={styles.appButtonText4}>Click to Scan</Text>
+                </TouchableOpacity>
+                }
                 {/*<Button*/}
                 {/*    title="Scan"*/}
                 {/*    onPress={() => setScanOn(true)}*/}
@@ -268,28 +404,65 @@ export default function HomeScreen() {
 
 
             </View>
-            <View style={styles.taskContainer}></View>
-            {/*<View style={styles.taskContainer}></View>*/}
-            {/*<Text style={styles.red}>Home Screen</Text>*/}
 
+                <View style={styles.taskContainer}></View>
+                {/*<View style={styles.taskContainer}></View>*/}
+                {/*<Text style={styles.red}>Home Screen</Text>*/}
         </View>
     );
 
 }
 const styles = StyleSheet.create({
-    appButtonText: {
+    appButtonText1: {
         fontSize: 18,
         color: "#fff",
         fontFamily: "Montserrat_700Bold",
         alignSelf: "center",
-        textTransform: "uppercase"
+        textTransform: "uppercase",
+
     },
-    appButtonContainer: {
+    appButtonContainer1: {
         elevation: 8,
         backgroundColor: "#78d9a4",
-        borderRadius: 10,
-        paddingVertical: 10,
-        paddingHorizontal: 12
+        borderRadius: 25,
+        paddingVertical: "3%",
+        paddingHorizontal: "12%",
+        overflow:"hidden",
+
+    },
+    appButtonText3: {
+        fontSize: 18,
+        color: "#fff",
+        fontFamily: "Montserrat_700Bold",
+        alignSelf: "center",
+        textTransform: "uppercase",
+
+    },
+    appButtonContainer3: {
+        elevation: 8,
+        backgroundColor: "#ed824c",
+        borderRadius: 25,
+        paddingVertical: "3%",
+        paddingHorizontal: "12%",
+        overflow:"hidden",
+
+    },
+    appButtonText4: {
+        fontSize: 18,
+        color: "#fff",
+        fontFamily: "Montserrat_700Bold",
+        alignSelf: "center",
+        textTransform: "uppercase",
+
+    },
+    appButtonContainer4: {
+        elevation: 8,
+        backgroundColor: "#ed4c4c",
+        borderRadius: 25,
+        paddingVertical: "3%",
+        paddingHorizontal: "12%",
+        overflow: 'hidden',
+
     },
 
     login: {
@@ -314,6 +487,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor:"#F2F2F2",
     },
     title: {
         fontSize: 20,
@@ -331,7 +505,7 @@ const styles = StyleSheet.create({
     },
     twoStars: {
         marginBottom: "5%",
-        width: "65%",
+        width: "85%",
         height: "40%",
     },
     threeStars: {
@@ -342,7 +516,7 @@ const styles = StyleSheet.create({
     fiveStars: {
         marginBottom: "5%",
         width: "90%",
-        height: "40%",
+        height: "90%",
     },
     unhappyFace: {
         marginBottom: "10%",
