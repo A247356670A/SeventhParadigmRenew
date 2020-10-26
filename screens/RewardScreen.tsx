@@ -30,7 +30,7 @@ export default function RewardScreen() {
                     style={styles.image}
                     source={require('../assets/images/apple.jpg')}
                 />
-                <Text style={styles.title}> Apple     </Text>
+                <Text style={styles.title}> T-Shirt </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
                     <Text style={styles.appButtonText}>Redeem</Text>
                 </TouchableOpacity>
@@ -43,7 +43,7 @@ export default function RewardScreen() {
                     style={styles.image}
                     source={require('../assets/images/banana.jpg')}
                 />
-                <Text style={styles.title}>Banana   </Text>
+                <Text style={styles.title}> Bicycle </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
                     <Text style={styles.appButtonText}>Redeem</Text>
                 </TouchableOpacity>
@@ -55,7 +55,7 @@ export default function RewardScreen() {
                     style={styles.image}
                     source={require('../assets/images/macbook.jpg')}
                 />
-                <Text style={styles.title}>Macbook</Text>
+                <Text style={styles.title}> Cup </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
                     <Text style={styles.appButtonText}>Redeem</Text>
                 </TouchableOpacity>
@@ -67,7 +67,7 @@ export default function RewardScreen() {
                     style={styles.image}
                     source={require('../assets/images/iphone.jpg')}
                 />
-                <Text style={styles.title}>Iphone    </Text>
+                <Text style={styles.title}> Hat </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
                     <Text style={styles.appButtonText}>Redeem</Text>
                 </TouchableOpacity>
@@ -79,7 +79,7 @@ export default function RewardScreen() {
                     style={styles.image}
                     source={require('../assets/images/cash.jpg')}
                 />
-                <Text style={styles.title}> $1 </Text>
+                <Text style={styles.title}> Bag x 10 </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
                     <Text style={styles.appButtonText}>Redeem</Text>
                 </TouchableOpacity>
@@ -90,7 +90,7 @@ export default function RewardScreen() {
                     style={styles.image}
                     source={require('../assets/images/cash.jpg')}
                 />
-                <Text style={styles.title}>$5</Text>
+                <Text style={styles.title}> Bag x 20 </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
                     <Text style={styles.appButtonText}>Redeem</Text>
                 </TouchableOpacity>
@@ -101,7 +101,7 @@ export default function RewardScreen() {
                     style={styles.image}
                     source={require('../assets/images/cash.jpg')}
                 />
-                <Text style={styles.title}>$10</Text>
+                <Text style={styles.title}> Bag x 30 </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
                     <Text style={styles.appButtonText}>Redeem</Text>
                 </TouchableOpacity>
@@ -112,26 +112,12 @@ export default function RewardScreen() {
                     style={styles.image}
                     source={require('../assets/images/cash.jpg')}
                 />
-                <Text style={styles.title}>$20 </Text>
+                <Text style={styles.title}> Bag x 40 </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
                     <Text style={styles.appButtonText}>Redeem</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <View>
                 <Dialog.Container visible={isInputPopup}>
@@ -201,15 +187,12 @@ const styles = StyleSheet.create({
         width:"25%",
         marginRight: "11%",
 
-
-
     },
     separator: {
         marginVertical: 25,
         height: 1,
         width: '80%',
         backgroundColor:"#d6d6d6",
-
 
     },
     image:{
