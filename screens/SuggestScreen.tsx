@@ -40,7 +40,7 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REDUCE: </Text> Downsize what
+                    <Text style={styles.adviceText}><Text style={styles.adviceText1}>REDUCE: </Text> Downsize what
                         you
                         purchase, opting to be mindful of what you need.</Text>
                 </View>
@@ -48,21 +48,21 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REUSE: </Text> Always find a way
+                    <Text style={styles.adviceText}><Text style={styles.adviceText1}>REUSE: </Text> Always find a way
                         to keep an item out of the landfill by keeping it.</Text>
                 </View>
 
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>ROT: </Text> Set up a compost
+                    <Text style={styles.adviceText}><Text style={styles.adviceText1}>ROT: </Text> Set up a compost
                         system for your food scraps, or find a food scrap.</Text>
                 </View>
 
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>RECYCLE: </Text> Properly
+                    <Text style={styles.adviceText}><Text style={styles.adviceText1}>RECYCLE: </Text> Properly
                         recycle
                         any plastic, paper, glass or metal that comes.</Text>
                 </View>
@@ -70,11 +70,12 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REFUSE: </Text> Avoid single use
+                    <Text style={styles.adviceText}><Text style={styles.adviceText1}>REFUSE: </Text> Avoid single use
                         plastics and paper products by saying no thanks.</Text>
                 </View>
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
             </View>}
+
             {userScore == 3 &&
             <View style={styles.container}>
                 <View style={styles.separator0} lightColor="#fff" darkColor="rgba(255,255,255,0.1)"/>
@@ -82,38 +83,36 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REDUCE: </Text> Downsize what
-                        you
-                        purchase, opting to be mindful of what you need.</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText2}>REDUCE: </Text>
+                        Use programmable thermostat that lower or raise the temperature when you’re not home to save electricity</Text>
                 </View>
 
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REUSE: </Text> Always find a way
-                        to keep an item out of the landfill by keeping it.</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText2}>REUSE: </Text>
+                        Open windows to allow a breeze instead of turning on the air conditioning to save electricity in house</Text>
                 </View>
 
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>ROT: </Text> Set up a compost
-                        system for your food scraps, or find a food scrap.</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText2}>ROT: </Text>
+                        Use an electric teakettle rather than a stove-top kettle to boil water to save energy in heating water</Text>
                 </View>
 
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>RECYCLE: </Text> Properly
-                        recycle
-                        any plastic, paper, glass or metal that comes.</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText2}>RECYCLE: </Text>
+                        Try growing your own food. Simply plant a few seeds in a corner of your yard or in a container on porch</Text>
                 </View>
 
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REFUSE: </Text> Avoid single use
-                        plastics and paper products by saying no thanks.</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText2}>REFUSE: </Text>
+                        Recycle as much as possible! If your neighborhood or apartment complex doesn’t offer recycling pickup</Text>
                 </View>
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
@@ -125,36 +124,36 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REDUCE:</Text> Downsize what you
-                        purchase, opting to be mindful of what you need</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText3}>REDUCE:</Text>
+                        “Reduce, Reuse, Recycle” may feel retro but it’s just as important today as when the phrase was first coined</Text>
                 </View>
 
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REUSE:</Text> Always find a way
-                        to keep an item out of the landfill by keeping it</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText3}>REUSE:</Text>
+                        Not everyone can run out and trade in their old gas-guzzling clunker for the latest planet-friendly hybrid car</Text>
                 </View>
 
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>ROT:</Text> Set up a compost
-                        system for your food scraps, or find a food scrap</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText3}>ROT:</Text>
+                        You can start cutting down on your plastic waste in a few simple steps: use reusable bags when you go shopping</Text>
                 </View>
 
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>RECYCLE:</Text> Properly recycle
-                        any plastic, paper, glass or metal that comes</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText3}>RECYCLE:</Text>
+                        Choose Fair Trade certified goods when possible to support companies dedicated to sustainable production</Text>
                 </View>
 
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceTextBold}>REFUSE:</Text> Avoid single use
-                        plastics and paper products by saying no thanks</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText3}>REFUSE:</Text>
+                        Skip the bottled water. Bottled water companies try to give tap water a bad name, even though the water from your faucet</Text>
                 </View>
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
@@ -204,9 +203,17 @@ const styles = StyleSheet.create({
     adviceText: {
         fontFamily: "Montserrat_400Regular",
     },
-    adviceTextBold: {
+    adviceText1: {
         fontFamily: "Montserrat_700Bold",
         color: '#30d080'
+    },
+    adviceText2: {
+        fontFamily: "Montserrat_700Bold",
+        color: '#f69642'
+    },
+    adviceText3: {
+        fontFamily: "Montserrat_700Bold",
+        color: '#f53535'
     },
     scrollViewStyle: {
         flex: 1,
