@@ -115,6 +115,7 @@ export default function HomeScreen() {
             setScanOn(false);
 
         } else {
+            updateUserScore(0, 5);
             alert('undefined code scanned');
             setScanOn(false);
             console.log("undefined code scanned");
@@ -158,7 +159,7 @@ export default function HomeScreen() {
                     </Text>
 
                 </View>
-            {userScore == 0 || userScore == 1 &&
+            {userScore == 4 &&
                 <View style={{
                     zIndex: 10,
                     marginTop: "25%",
@@ -183,31 +184,31 @@ export default function HomeScreen() {
                     </View>
                 </View>
             }
-            {userScore == 2 &&
-            <View style={{
-                zIndex: 10,
-                marginTop: "25%",
-                backgroundColor: "#d8f5e3",
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 225,
-                height: 225,
-                borderRadius: 225 / 2,
-            }}>
-                <View style={{
-                    zIndex: 99,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: "#baedcf",
-                    width: 190,
-                    height: 190,
-                    borderRadius: 100,
-                }}>
-                    <Image style={imageStyle}
-                           source={imagePath}/>
-                </View>
-            </View>
-            }
+            {/*{userScore == 2 &&*/}
+            {/*<View style={{*/}
+            {/*    zIndex: 10,*/}
+            {/*    marginTop: "25%",*/}
+            {/*    backgroundColor: "#d8f5e3",*/}
+            {/*    alignItems: 'center',*/}
+            {/*    justifyContent: 'center',*/}
+            {/*    width: 225,*/}
+            {/*    height: 225,*/}
+            {/*    borderRadius: 225 / 2,*/}
+            {/*}}>*/}
+            {/*    <View style={{*/}
+            {/*        zIndex: 99,*/}
+            {/*        alignItems: 'center',*/}
+            {/*        justifyContent: 'center',*/}
+            {/*        backgroundColor: "#baedcf",*/}
+            {/*        width: 190,*/}
+            {/*        height: 190,*/}
+            {/*        borderRadius: 100,*/}
+            {/*    }}>*/}
+            {/*        <Image style={imageStyle}*/}
+            {/*               source={imagePath}/>*/}
+            {/*    </View>*/}
+            {/*</View>*/}
+            {/*}*/}
             {userScore == 3 &&
             <View style={{
                 zIndex: 10,
@@ -233,7 +234,32 @@ export default function HomeScreen() {
                 </View>
             </View>
             }
-            {userScore == 4 &&
+            {userScore == 2 &&
+            <View style={{
+                zIndex: 10,
+                marginTop: "25%",
+                backgroundColor: "#f5e4da",
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 225,
+                height: 225,
+                borderRadius: 225 / 2,
+            }}>
+                <View style={{
+                    zIndex: 99,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: "#f2c3a8",
+                    width: 190,
+                    height: 190,
+                    borderRadius: 100,
+                }}>
+                    <Image style={imageStyle}
+                           source={imagePath}/>
+                </View>
+            </View>
+            }
+            {userScore == 0 || userScore == 1 &&
             <View style={{
                 zIndex: 10,
                 marginTop: "25%",
@@ -258,7 +284,8 @@ export default function HomeScreen() {
                 </View>
             </View>
             }
-            {userScore == 0 || userScore == 1 &&
+
+            {userScore == 4 &&
                 <View style={styles.taskContainer}>
                     <Text style={{
                         marginTop: "15%",
@@ -275,23 +302,23 @@ export default function HomeScreen() {
                     }}>Please keep it up</Text>
                 </View>
             }
-            {userScore == 2 &&
-            <View style={styles.taskContainer}>
-                <Text style={{
-                    marginTop: "15%",
-                    paddingBottom: "2%",
-                    color: 'black',
-                    fontSize: 21,
-                    fontFamily: "Montserrat_700Bold",
-                }}>Congratulations!</Text>
-                <Text style={{
-                    paddingBottom: "2%",
-                    color: 'black',
-                    fontSize: 21,
-                    fontFamily: "Montserrat_700Bold",
-                }}>Please keep it up</Text>
-            </View>
-            }
+            {/*{userScore == 2 &&*/}
+            {/*<View style={styles.taskContainer}>*/}
+            {/*    <Text style={{*/}
+            {/*        marginTop: "15%",*/}
+            {/*        paddingBottom: "2%",*/}
+            {/*        color: 'black',*/}
+            {/*        fontSize: 21,*/}
+            {/*        fontFamily: "Montserrat_700Bold",*/}
+            {/*    }}>Congratulations!</Text>*/}
+            {/*    <Text style={{*/}
+            {/*        paddingBottom: "2%",*/}
+            {/*        color: 'black',*/}
+            {/*        fontSize: 21,*/}
+            {/*        fontFamily: "Montserrat_700Bold",*/}
+            {/*    }}>Please keep it up</Text>*/}
+            {/*</View>*/}
+            {/*}*/}
             {userScore == 3 &&
             <View style={styles.taskContainer}>
                 <Text style={{
@@ -310,7 +337,25 @@ export default function HomeScreen() {
                 }}>Please keep going!</Text>
             </View>
             }
-            {userScore == 4 &&
+            {userScore == 2 &&
+            <View style={styles.taskContainer}>
+                <Text style={{
+                    marginTop: "15%",
+                    paddingBottom: "2%",
+                    color: 'black',
+                    fontSize: 18,
+                    fontFamily: "Montserrat_700Bold",
+                    textAlign: "center",
+                }}>Today's lifestyle is not environmentally friendly!</Text>
+                <Text style={{
+                    paddingBottom: "2%",
+                    color: 'black',
+                    fontSize: 21,
+                    fontFamily: "Montserrat_700Bold",
+                }}>Please keep going!</Text>
+            </View>
+            }
+            {userScore == 0 || userScore == 1 &&
             <View style={styles.taskContainer}>
                 <Text style={{
                     marginTop: "15%",
@@ -334,14 +379,14 @@ export default function HomeScreen() {
                 backgroundColor:"#F2F2F2",
 
             }}>
-                {userScore == 0 || userScore == 1 &&
+                {userScore == 4 &&
                 <TouchableOpacity onPress={() => setScanOn(true)} style={styles.appButtonContainer1}>
                     <Text style={styles.appButtonText1}>Click to Scan</Text>
                 </TouchableOpacity>
                 }
                 {userScore == 2 &&
-                <TouchableOpacity onPress={() => setScanOn(true)} style={styles.appButtonContainer1}>
-                    <Text style={styles.appButtonText1}>Click to Scan</Text>
+                <TouchableOpacity onPress={() => setScanOn(true)} style={styles.appButtonContainer3}>
+                    <Text style={styles.appButtonText3}>Click to Scan</Text>
                 </TouchableOpacity>
                 }
                 {userScore == 3 &&
@@ -349,7 +394,7 @@ export default function HomeScreen() {
                     <Text style={styles.appButtonText3}>Click to Scan</Text>
                 </TouchableOpacity>
                 }
-                {userScore == 4 &&
+                {userScore == 0 || userScore == 1 &&
                 <TouchableOpacity onPress={() => setScanOn(true)} style={styles.appButtonContainer4}>
                     <Text style={styles.appButtonText4}>Click to Scan</Text>
                 </TouchableOpacity>

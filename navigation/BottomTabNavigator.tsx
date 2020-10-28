@@ -64,8 +64,11 @@ export default function BottomTabNavigator() {
 
             })}
             tabBarOptions={{
-                activeTintColor: 'tomato',
+                activeBackgroundColor: "#f2f2f2",
+                inactiveBackgroundColor: "#f2f2f2",
+                activeTintColor: '#489145',
                 inactiveTintColor: 'black',
+
             }}
         >
             <BottomTab.Screen
@@ -166,12 +169,10 @@ function HomeNavigator() {
                     headerTitleAlign: 'left',
 
                     headerStyle: {
-                        overflow: "hidden",
                         elevation:0,
                         height: 145,
                         backgroundColor: '#78d9a4',
                         borderBottomLeftRadius: 70,
-                        backfaceVisibility:'hidden',
                     },
                     headerTitleStyle: {
                         paddingLeft: 55,

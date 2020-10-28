@@ -13,10 +13,6 @@ export default function TaskScreen() {
     const [isCup, setCup] = useState(false);
     const [isEx, setEx] = useState(false);
     const [isLight, setLight] = useState(false);
-    const userScoreAdd = () => {
-        window.location = window.location
-        // window.location.reload(false);
-    }
     return (
 
         <ScrollView style={styles.scrollViewStyle}>
@@ -29,9 +25,10 @@ export default function TaskScreen() {
             <View style={styles.separator} lightColor="#eee" darkColor="#78d9a4"/>
 
             <View style={styles.checkboxContainer}>
-                <CheckBox value={isElev} onChange={userScoreAdd} onValueChange={setElev} style={styles.checkbox}/>
+                <CheckBox value={isElev} onValueChange={setElev} style={styles.checkbox}/>
 
-                <Text style={styles.label}>Stairs Not Elevator? {isElev ? '👍' : '👎'}</Text>
+                <Text style={styles.label}>Stairs Not Elevator?     </Text>
+                <Text style={styles.label1}>{isElev ? '👍' : '👎'}</Text>
 
             </View>
 
@@ -39,7 +36,8 @@ export default function TaskScreen() {
 
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isGym} onValueChange={setGym} style={styles.checkbox}/>
-                <Text style={styles.label}>Going to the Gym? {isGym ? '👍' : '👎'}</Text>
+                <Text style={styles.label}>Going to the Gym?       </Text>
+                <Text style={styles.label1}>{isGym ? '👍' : '👎'}</Text>
 
             </View>
 
@@ -47,7 +45,8 @@ export default function TaskScreen() {
 
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isDri} onValueChange={setDri} style={styles.checkbox}/>
-                <Text style={styles.label}>Not Driving to Work? {isDri ? '👍' : '👎'}</Text>
+                <Text style={styles.label}>Not Driving to Work?  </Text>
+                <Text style={styles.label1}>{isDri ? '👍' : '👎'}</Text>
 
             </View>
 
@@ -55,7 +54,8 @@ export default function TaskScreen() {
 
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isCup} onValueChange={setCup} style={styles.checkbox}/>
-                <Text style={styles.label}>Using Your Own Cup? {isCup ? '👍' : '👎'}</Text>
+                <Text style={styles.label}>Using Your Own Cup?    </Text>
+                <Text style={styles.label1}>{isCup ? '👍' : '👎'}</Text>
 
             </View>
 
@@ -63,7 +63,8 @@ export default function TaskScreen() {
 
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isEx} onValueChange={setEx} style={styles.checkbox}/>
-                <Text style={styles.label}>Have Exercised Today? {isEx ? '👍' : '👎'}</Text>
+                <Text style={styles.label}>Have Exercised Today? </Text>
+                <Text style={styles.label1}>{isEx ? '👍' : '👎'}</Text>
 
             </View>
 
@@ -71,7 +72,8 @@ export default function TaskScreen() {
 
             <View style={styles.checkboxContainer}>
                 <CheckBox value={isLight} onValueChange={setLight} style={styles.checkbox}/>
-                <Text style={styles.label}>Lights out when sleep? {isLight ? '👍' : '👎'}</Text>
+                <Text style={styles.label}>Lights out when sleep?</Text>
+                <Text style={styles.label1}>{isLight ? '👍' : '👎'}</Text>
             </View>
 
         </View>
@@ -93,9 +95,8 @@ const styles = StyleSheet.create({
 
         },
     title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        fontFamily: "serif"
+        fontSize: 18,
+        fontFamily: "Montserrat_700Bold",
     },
     separator0: {
         marginVertical: 20,
@@ -122,9 +123,15 @@ const styles = StyleSheet.create({
     },
     label: {
         margin: 8,
-        fontWeight: "bold",
-        fontFamily: "sans-serif",
-        color: "#e66a17"
+        fontFamily: "Montserrat_700Bold",
+        color: "#395245"
+    },
+    label1:{
+        margin: 8,
+
+        paddingRight: "1%",
+        alignItems: "stretch",
+        alignSelf: "flex-end",
     },
     bigBlue: {
         color: 'blue',

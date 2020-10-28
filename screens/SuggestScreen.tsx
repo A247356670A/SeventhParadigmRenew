@@ -31,7 +31,7 @@ export default function SuggestScreen() {
 
     return (
         <ScrollView style={styles.scrollViewStyle}>
-            {userScore == 0 || userScore == 1 &&
+            {userScore == 4 &&
 
             <View style={styles.container}>
 
@@ -70,7 +70,7 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceText1}>REFUSE: </Text> Avoid single use
+                    <Text style={styles.adviceText}><Text style={styles.adviceText2}>REFUSE: </Text> Avoid single use
                         plastics and paper products by saying no thanks.</Text>
                 </View>
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
@@ -90,7 +90,7 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceText2}>REUSE: </Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText1}>REUSE: </Text>
                         Open windows to allow a breeze instead of turning on the air conditioning to save electricity in house</Text>
                 </View>
 
@@ -104,20 +104,20 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceText2}>RECYCLE: </Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText1}>RECYCLE: </Text>
                         Try growing your own food. Simply plant a few seeds in a corner of your yard or in a container on porch</Text>
                 </View>
 
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceText2}>REFUSE: </Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText1}>REFUSE: </Text>
                         Recycle as much as possible! If your neighborhood or apartment complex doesn’t offer recycling pickup</Text>
                 </View>
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
             </View>}
-            {userScore == 4 &&
+            {userScore == 0 || userScore == 1 &&
             <View style={styles.container}>
                 <View style={styles.separator0} lightColor="#fff" darkColor="rgba(255,255,255,0.1)"/>
                 <Text style={styles.title}>Suggestions for High Starer</Text>
@@ -131,7 +131,7 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceText3}>REUSE:</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText2}>REUSE:</Text>
                         Not everyone can run out and trade in their old gas-guzzling clunker for the latest planet-friendly hybrid car</Text>
                 </View>
 
@@ -145,7 +145,7 @@ export default function SuggestScreen() {
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
 
                 <View style={styles.advice}>
-                    <Text style={styles.adviceText}><Text style={styles.adviceText3}>RECYCLE:</Text>
+                    <Text style={styles.adviceText}><Text style={styles.adviceText2}>RECYCLE:</Text>
                         Choose Fair Trade certified goods when possible to support companies dedicated to sustainable production</Text>
                 </View>
 

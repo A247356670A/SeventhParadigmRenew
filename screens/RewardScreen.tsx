@@ -28,7 +28,7 @@ export default function RewardScreen() {
             <View style={styles.container0}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/apple.jpg')}
+                    source={require('../assets/images/apple.png')}
                 />
                 <Text style={styles.title}> T-Shirt </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
@@ -41,7 +41,7 @@ export default function RewardScreen() {
             <View style={styles.container1}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/banana.jpg')}
+                    source={require('../assets/images/banana.png')}
                 />
                 <Text style={styles.title}> Bicycle </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
@@ -53,7 +53,7 @@ export default function RewardScreen() {
             <View style={styles.container1}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/macbook.jpg')}
+                    source={require('../assets/images/macbook.png')}
                 />
                 <Text style={styles.title}> Cup </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
@@ -65,7 +65,7 @@ export default function RewardScreen() {
             <View style={styles.container1}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/iphone.jpg')}
+                    source={require('../assets/images/iphone.png')}
                 />
                 <Text style={styles.title}> Hat </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
@@ -77,7 +77,7 @@ export default function RewardScreen() {
             <View style={styles.container1}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/cash.jpg')}
+                    source={require('../assets/images/cash.png')}
                 />
                 <Text style={styles.title}> Bag x 10 </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
@@ -88,7 +88,7 @@ export default function RewardScreen() {
             <View style={styles.container1}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/cash.jpg')}
+                    source={require('../assets/images/cash.png')}
                 />
                 <Text style={styles.title}> Bag x 20 </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
@@ -99,7 +99,7 @@ export default function RewardScreen() {
             <View style={styles.container1}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/cash.jpg')}
+                    source={require('../assets/images/cash.png')}
                 />
                 <Text style={styles.title}> Bag x 30 </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
@@ -110,7 +110,7 @@ export default function RewardScreen() {
             <View style={styles.container1}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/cash.jpg')}
+                    source={require('../assets/images/cash.png')}
                 />
                 <Text style={styles.title}> Bag x 40 </Text>
                 <TouchableOpacity onPress={() => setInputPopup(!isInputPopup)} style={styles.appButtonContainer}>
@@ -196,9 +196,9 @@ const styles = StyleSheet.create({
 
     },
     image:{
-        width: 50,
-        height: 40,
-        marginRight:70,
+        width: "18%",
+        height: 44,
+        marginRight:"13%",
         backgroundColor:"#F2F2F2",
 
     }

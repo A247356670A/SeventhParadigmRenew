@@ -49,6 +49,7 @@ export default function App() {
         appId: "1:18587242451:web:fc3a156f422340e275e926",
         measurementId: "G-9SBDPCNZ29"
     };
+    LogBox.ignoreLogs(['Remote debugger']);
     LogBox.ignoreLogs(['Setting a timer']);
     const _console = _.clone(console);
     // @ts-ignore

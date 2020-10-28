@@ -15,24 +15,37 @@ import {BarCodeScanner, BarCodeScannerResult} from 'expo-barcode-scanner';
 import BarcodeMask from 'react-native-barcode-mask';
 import {Montserrat_700Bold} from "@expo-google-fonts/montserrat";
 import ScrollableTabView, {DefaultTabBar, ScrollableTabBar,} from 'react-native-scrollable-tab-view';
+import firebase from "firebase";
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
 export default function RecordScreen() {
+    const [userScore, setUserScore] = useState(0);
+    const database = firebase.database();
 
+    function checkUserScore() {
+        let ref = database.ref('starsLevel/' + 0 + '/level')
+        ref.on("value", function (snapshot) {
+            setUserScore(snapshot.val());
+            console.log("data pulled" + userScore);
+        });
+    }
+
+    useEffect(() => {
+
+        (async () => {
+            checkUserScore();
+        })();
+    }, []);
     const chartConfig = {
 
-        backgroundGradientFrom: "white",
+        backgroundGradientFrom: "#f2f2f2",
         backgroundGradientFromOpacity: 1,
-        backgroundGradientTo: "white",
+        backgroundGradientTo: "#f2f2f2",
         backgroundGradientToOpacity: 1,
-        // backgroundColor: "white",
         color: (opacity = 1) => `rgba(5, 101, 52, ${opacity})`,
-        // strokeWidth: 2, // optional, default 3
         barPercentage: 0.5,
-        // useShadowColorFromDataset: false, // optional
-
         decimalPlaces: 0, // optional, defaults to 2dp
         labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
         propsForDots: {
@@ -41,6 +54,8 @@ export default function RecordScreen() {
             stroke: "#ffa726"
         }
     };
+
+
     return (
         <ScrollableTabView
             initialPage={0}
@@ -48,7 +63,7 @@ export default function RecordScreen() {
                 fontFamily: "Montserrat_700Bold",
             }}
             tabBarInactiveTextColor={'white'}
-            tabBarActiveTextColor={'red'}
+            tabBarActiveTextColor={'#489145'}
             tabBarUnderlineStyle={styles.underlineStyle}
             renderTabBar={() => <ScrollableTabBar
                 style={{
@@ -64,38 +79,163 @@ export default function RecordScreen() {
                 // horizontal={true}
                 // pagingEnabled={true}
             >
-                <View style={styles.record01}>
-                    <Text style={styles.bigText}>Your record</Text>
+                {userScore == 2 &&
+                <View style={{backgroundColor: '#f2f2f2',}}>
+                    <View style={styles.record01}>
+                    <Text style={styles.bigText}>Shopping record</Text>
 
                     <BarChart
                         yAxisSuffix="k"
                         data={{
                             labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
                             datasets: [
-                                {
-                                    data: [20, 45, 28, 80, 99, 43, 50],
+                                {// @ts-ignore
+                                    data: [20, 45, 28, 80, 0, 0, 0],
                                 },
                             ],
                         }}
                         style={{
                             padding: '1%',
+                            backgroundColor: '#f2f2f2',
                         }}
                         width={width * 0.8}
                         height={height * 0.4}
-                        yAxisLabel="Co2: "
+                        yAxisLabel="Co2:  "
                         chartConfig={chartConfig}
-                        horizontalLabelRotation={10}
-                        // verticalLabelRotation={30}
                     />
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Co2 Consumption Today</Text>
+                        <Text style={styles.bigText}>0 Kg</Text>
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Last Co2 Consumption</Text>
+                        <Text style={styles.bigText}>25 Kg</Text>
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Changes to last shopping</Text>
+                        <Text style={styles.bigText}>-45%</Text>
+                    </View>
                 </View>
-                <View style={styles.record01}>
-                    <Text style={styles.smallText}>Co2</Text>
-                    <Text style={styles.bigText}>25K</Text>
+                }
+                {(userScore == 1 || userScore == 0) &&
+                <View style={{backgroundColor: '#f2f2f2',}}>
+                    <View style={styles.record01}>
+                    <Text style={styles.bigText}>Shopping record</Text>
+
+                    <BarChart
+                        yAxisSuffix="k"
+                        data={{
+                            labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+                            datasets: [
+                                {// @ts-ignore
+                                    data: [20, 45, 28, 80, 33, 0, 0],
+                                },
+                            ],
+                        }}
+                        style={{
+                            padding: '1%',
+                            backgroundColor: '#f2f2f2',
+                        }}
+                        width={width * 0.8}
+                        height={height * 0.4}
+                        yAxisLabel="Co2:  "
+                        chartConfig={chartConfig}
+                    />
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Co2 today</Text>
+                        <Text style={styles.bigText}>33 Kg</Text>
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Last Co2 Consumption</Text>
+                        <Text style={styles.bigText}>33 Kg</Text>
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Changes to last shopping</Text>
+                        <Text style={styles.bigText}>+33%</Text>
+                    </View>
                 </View>
-                <View style={styles.record02}>
-                    <Text style={styles.smallText}>Changes</Text>
-                    <Text style={styles.bigText}>45%</Text>
+                }
+                {userScore == 3 &&
+                <View style={{backgroundColor: '#f2f2f2',}}>
+                    <View style={styles.record01}>
+                    <Text style={styles.bigText}>Shopping record</Text>
+
+                    <BarChart
+                        yAxisSuffix="k"
+                        data={{
+                            labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+                            datasets: [
+                                {// @ts-ignore
+                                    data: [20, 45, 28, 80, 54, 0, 0],
+                                },
+                            ],
+                        }}
+                        style={{
+                            padding: '1%',
+                            backgroundColor: '#f2f2f2',
+                        }}
+                        width={width * 0.8}
+                        height={height * 0.4}
+                        yAxisLabel="Co2:  "
+                        chartConfig={chartConfig}
+                    />
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Co2 today</Text>
+                        <Text style={styles.bigText}>54 Kg</Text>
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Last Co2 Consumption</Text>
+                        <Text style={styles.bigText}>21 Kg</Text>
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Changes to last shopping</Text>
+                        <Text style={styles.bigText}>-36%</Text>
+                    </View>
                 </View>
+                }
+                {userScore == 4 &&
+                <View style={{backgroundColor: '#f2f2f2',}}>
+                    <View style={styles.record01}>
+                    <Text style={styles.bigText}>Shopping record</Text>
+
+                    <BarChart
+                        yAxisSuffix="k"
+                        data={{
+                            labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+                            datasets: [
+                                {// @ts-ignore
+                                    data: [20, 45, 28, 80, 64, 0, 0],
+                                },
+                            ],
+                        }}
+                        style={{
+                            padding: '1%',
+                            backgroundColor: '#f2f2f2',
+                        }}
+                        width={width * 0.8}
+                        height={height * 0.4}
+                        yAxisLabel="Co2:  "
+                        chartConfig={chartConfig}
+                    />
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Co2 today</Text>
+                        <Text style={styles.bigText}>64 Kg</Text>
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Last Co2 Consumption</Text>
+                        <Text style={styles.bigText}>10 Kg</Text>
+                    </View>
+                    <View style={styles.record02}>
+                        <Text style={styles.smallText}>Changes to last shopping</Text>
+                        <Text style={styles.bigText}>-52%</Text>
+                    </View>
+                </View>
+                }
+
             </ScrollView>
             <ScrollView
                 style={styles.scrollViewStyle}
@@ -160,15 +300,15 @@ export default function RecordScreen() {
                         }}
                         width={width * 0.8}
                         height={height * 0.4}
-                        yAxisLabel="Co2: "
+                        // yAxisLabel="Co2: "
                         chartConfig={chartConfig}
                         horizontalLabelRotation={10}
                         // verticalLabelRotation={30}
                     />
                 </View>
                 <View style={styles.record01}>
-                    <Text style={styles.smallText}>Co2</Text>
-                    <Text style={styles.bigText}>25K</Text>
+                    <Text style={styles.smallText}>Co2 today</Text>
+                    <Text style={styles.bigText}>25 Kg</Text>
                 </View>
                 <View style={styles.record02}>
                     <Text style={styles.smallText}>Changes</Text>
@@ -199,13 +339,13 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat_700Bold",
         fontSize: 25,
         //fontWeight: 'bold',
-        left: '10%',
-        paddingBottom: '5%',
+        left: '15%',
+        paddingTop: '3%',
     },
     smallText: {
         fontFamily: "Montserrat_700Bold",
         fontSize: 13,
-        color: "tomato",
+        color: "#489145",
         //fontWeight: 'bold',
         left: '5%',
     },
@@ -217,29 +357,28 @@ const styles = StyleSheet.create({
     graphStyle: {},
     record01: {
         paddingTop: '5%',
-        paddingBottom: '3%',
-        paddingLeft: '2%',
+        paddingLeft: '8%',
         marginTop: '5%',
-        borderTopRightRadius: 25,
-        borderBottomRightRadius: 25,
-        backgroundColor: 'white',
+        // borderTopRightRadius: 25,
+        // borderBottomRightRadius: 25,
+        backgroundColor: '#f2f2f2',
         left: 0,
-        width: '90%',
+        // width: '90%',
         // height:"60%",
         // minHeight:"60%",
         // maxHeight:"70%",
 
     },
     record02: {
-        paddingTop: '5%',
-        paddingBottom: '5%',
-        paddingLeft: '2%',
+        paddingTop: '3%',
+        paddingBottom: '3%',
+        paddingLeft: '8%',
         marginTop: '2%',
-        borderTopRightRadius: 25,
-        borderBottomRightRadius: 25,
-        backgroundColor: 'white',
+        // borderTopRightRadius: 25,
+        // borderBottomRightRadius: 25,
+        backgroundColor: '#f2f2f2',
         left: 0,
-        width: '90%',
+        // width: '90%',
         // height:"60%",
         // minHeight:"60%",
         // maxHeight:"70%",
